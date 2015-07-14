@@ -1,0 +1,129 @@
+%-------------------------------------------------------------------------------
+% yoshimi-cookbook
+%-------------------------------------------------------------------------------
+%
+% \file        yoshimi-cookbook.tex
+% \library     Documents
+% \author      Chris Ahlstrom
+% \date        2015-07-12
+% \update      2015-07-14
+% \version     $Revision$
+% \license     $XPC_GPL_LICENSE$
+%
+%     This document provides LaTeX documentation for yoshimi.  It is similar
+%     in structure to the yoshimi-doc project.
+%
+%-------------------------------------------------------------------------------
+
+\documentclass[
+ 11pt,
+ twoside,
+ a4paper,
+ headinclude,
+ footinclude,
+ final                                 % versus draft
+]{article}
+
+% This file and its clone in yoshimi-doc should be kept in sync:
+
+\input{yoshimi-docs-structure}         % specifies document structure and layout
+
+\makeindex
+
+\begin{document}
+
+\title{A Yoshimi Cookbook}
+\author{Chris Ahlstrom\\
+   (\texttt{ahlstromcj@gmail.com})}
+\date{\today}
+\maketitle
+\tableofcontents
+\listoffigures                         % print the list of figures
+\listoftables                          % print the list of tables
+
+% Change the paragraph style to remove indenting and put a line between each
+% paragraph.  This could be moved up into the preamble, but then would
+% affect the spacing of the TOC and LOF, LOT noted above.
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+\section{Introduction}
+\label{sec:introduction}
+
+   This document is a follow-on to the author's
+   "A Yoshimi User Manual" \cite{yoshimidoc}.
+   The user manual attempts complete coverage of the user-interface and
+   concepts behind \textsl{Yoshimi}.
+   This cookbook attempts to provide recipes to solve some common problems
+   in getting \textsl{Yoshimi} to perform at its best for the user.
+
+\subsection{Project Structure}
+\label{subsec:introduction_project_structure}
+
+   The "Yoshimi Cookbook" project consists of two parts:
+
+   \begin{itemize}
+      \item The source material for this document.
+      \item A self contained "yoshimi" configuration and data
+            section to support the examples in this cookbook.
+   \end{itemize}
+
+   The documentation source-files are provided in the \texttt{tex}
+   directory.  They are use to create the cookbook via Makefiles and
+   the external "latexmk" project.  The result of a "make" is a new
+   PDF of the cookbook in the \texttt{pdf} directory.  The latest
+   PDF is always provided there so that one does not have to install the
+   external projects needed to create it.
+
+   The configuration, banks, presets, and instrument files can be used
+   to supplement or replaces the user's own configuration and data files.
+
+\subsection{What Game Shall We Play Today?}
+\label{subsec:introduction_what_game}
+
+   There are a number of recipes that are hinted at in the user manual, but
+   that solve problems that the author has encountered while using
+   \textsl{Yoshimi}.
+
+   \begin{itemize}
+      \item \textbf{Banks and MIDI}.
+         \textsl{Yoshimi} has had recent modifications to support
+         bank-switching and using program-change messages to make
+         \textsl{Yoshimi} a more flexible MIDI playback tool.
+      \item \textbf{General MIDI}.
+         It should be possible to set up one or more banks that
+         are General MIDI compliant.
+      \item \textbf{Usage of Modulators}.
+         \textsl{Yoshimi} provides a number of modulation setups,
+         but it isn't clear how to use them, especially the ring modulator.
+      \item \textbf{More! ...}
+   \end{itemize}
+
+% Instruments
+
+\input{cookbook_instruments}
+
+% Banks and General MIDI
+
+\input{cookbook_banks}
+
+% \input{cookbook_concepts}
+
+\section{Summary}
+\label{sec:summary}
+
+   In summary, we can say that you will absolutely love 
+   cooking with \textsl{Yoshimi}.
+
+% References
+
+\input{cookbook_references}
+
+\printindex
+
+\end{document}
+
+%-------------------------------------------------------------------------------
+% vim: ts=3 sw=3 et ft=tex
+%-------------------------------------------------------------------------------

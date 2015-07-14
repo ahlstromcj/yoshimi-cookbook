@@ -1,0 +1,166 @@
+%-------------------------------------------------------------------------------
+% cookbook_instruments
+%-------------------------------------------------------------------------------
+%
+% \file        cookbook_instruments.tex
+% \library     Documents
+% \author      Chris Ahlstrom
+% \date        2015-07-12
+% \update      2015-07-13
+% \version     $Revision$
+% \license     $XPC_GPL_LICENSE$
+%
+%     Provides the cookbooks_instruments section of yoshimi-cookbook.tex.
+%
+%-------------------------------------------------------------------------------
+
+\section{Creating Instruments}
+\label{sec:cookbook_instruments}
+
+   One of our goals in using \textsl{Yoshimi} is to support
+   \textsl{General MIDI} (\textsl{GM})
+   to the greatest extent possible.
+
+   However, no banks have been created with GM in mind.  And many of the
+   instruments, though given names that indicate what they are intended to
+   be, fall well short of being recognizable per their name; they should be
+   doable with a complex synthesizer like \textsl{Yoshimi}.
+  
+   It is true that there are a vast number of patches out there.  The author
+   has attempted a survey of them, and the task is all but impossible.
+   Still, many candidates have been identified.  Other candidates might be
+   suitable with a little tweaking.
+
+   Here are a number of categories of instruments for which we want to
+   assemble an improved set of instruments.
+
+   \begin{enumber}
+      \item \textbf{Bells}
+      \item \textbf{Ethnic}
+      \item \textbf{Drums}
+      \item \textbf{Effects}
+      \item \textbf{Piano}
+      \item \textbf{Leads}
+      \item \textbf{Guitar}
+      \item \textbf{Strings} (individual and ensemble)
+      \item \textbf{Bass}
+      \item \textbf{Saxophones}
+   \end{enumber}
+
+   Of course, this is too much work to do all at once.  In the next section
+   we will assemble a quick-and-dirty basic GM bank with a lot of holes to
+   fill in, and add the instruments we create here as each matures.
+
+\subsection{Bells}
+\label{subsec:cookbook_instruments_bells}
+
+   The bells patches we've heard so far are nice, but a bit anemic.
+   
+   Good bell patches need to include ring modulation, done right.  We're not
+   sure if there are any such patches extant; please send us to them if
+   there are some.
+
+   In the meantime, creating bells is a good excuse to master
+   \textsl{Yoshimi}'s ring modulator.
+
+   Start with a fresh \textsl{Yoshimi} and a cleared instrument ("Simple
+   Sound").  Open the virtual keyboard using the \textbf{virKbd} button.
+   Click a key and verify that you can hear a tone.  We'll use the middle C
+   key (the "comma" on the PC keyboard) as a reference.
+
+   The following steps will set up two tones, voice 1 and voice 2, and voice
+   2 will use voice 1 as an external modulator.
+ 
+   \begin{enumber}
+      \item Open the ADDsynth editing window by clicking the \textbf{Edit} button
+         in the bottom panel, and then clicking the ADDsynth \textbf{Edit}
+         button in the edit window.
+      \item Click on the \textbf{Show Voice Parameters} button.
+         Note that it is \textbf{Current Voice 1}, and it should be enabled.
+      \item Switch to \textbf{Current Voice} number 2 and enable it.
+         Move the \textbf{FREQUENCY Detune} slider a bit, and play the "C"
+         note.  It should sound the same as before, but change slowly in
+         amplitude, as heard and as seen on the \textbf{VU meter}.
+         Try to set the detune back to 0; this is easier if you highlight
+         the tuning knob and use the left or right arrow keys.
+      \item In the \textbf{MODULATOR} section of voice 2, for \textbf{Type},
+         select the \textbf{RING} value.  (However, feel free to select one
+         of the other modulators, to experiment, once you've mastered
+         the ring modulator.)  Press the "C" key again, and notice
+         that the tone is a lot louder, but not yet modulated.
+      \item In \textbf{External Mod.} for voice 2, select
+         \textbf{Ext.M} 1, to use the voice 1 as the internal modulator.
+      \item To actually hear some modulation, we have to separate the
+         frequencies of the two voices.  Click the \textbf{440Hz} check-box in
+         the \textbf{FREQUENCY} section.  Press the "C" key and verify hearing
+         a two-tone signal, somewhat like a phone tone.
+         One can unselect the \textbf{440Hz} button.  If you go back to 
+         voice 1 and select the \textbf{440Hz} button there, the same effect
+         will occur.
+         But unselect it again, and verify that only one apparent (loud)
+         tone now sounds.
+      \item Now go back to voice 2 and click the \textbf{Change} button to
+         bring up the ADDsynth oscillator dialog.
+      \item Move the slider to maximum for harmonic 10.  Press the "C" key
+         and verify the new sound (a bit like a car horn).
+         Set the sliders back to 0, and "C" will be a single tone again.
+      \item Change the \textbf{Octave} values of voice 2 in its
+         \textbf{FREQUENCY} section and listen to the effects.
+   \end{enumber}
+
+   Now we need to see if we can apply modulation across instruments!
+
+\subsection{Ethnic}
+\label{subsec:cookbook_instruments_ethnic}
+
+   We've found a simple steel drum instruments, but think we might do better,
+   creating one using ADDsynth and one using PADsynth.
+
+   Instruments we have not found, and would like to synthesize, are:
+   bagpipes and arabic pipes.
+
+\subsection{Drums}
+\label{subsec:cookbook_instruments_drums}
+
+   We want a decent drum kit that attempts to fill in the gaps for a
+   GM-compliant drum kit with solid sounds, and we think we've done it, with
+   the help of an existing kit.
+
+\subsection{Effects}
+\label{subsec:cookbook_instruments_effects}
+
+   We've created a nice dial-tone effect that we'll describe here.
+
+\subsection{Piano}
+\label{subsec:cookbook_instruments_piano}
+
+   TODO.
+
+\subsection{Leads}
+\label{subsec:cookbook_instruments_leads}
+
+   TODO.
+
+\subsection{Guitar}
+\label{subsec:cookbook_instruments_guitar}
+
+   TODO.
+
+\subsection{Strings} (individual and ensemble)
+\label{subsec:cookbook_instruments_strings}
+
+   TODO.
+
+\subsection{Bass}
+\label{subsec:cookbook_instruments_bass}
+
+   TODO.
+
+\subsection{Saxophones}
+\label{subsec:cookbook_instruments_saxophones}
+
+   TODO.
+
+%-------------------------------------------------------------------------------
+% vim: ts=3 sw=3 et ft=tex
+%-------------------------------------------------------------------------------

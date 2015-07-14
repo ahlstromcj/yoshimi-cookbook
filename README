@@ -1,0 +1,27 @@
+Yoshimi Document
+Chris Ahlstrom
+2015-07-14 to 2015-07-14
+
+This project provides two things:
+
+   1. A cookbook, still in progress, to cover doing things with Yoshimi
+      that might not be so obvious, even after reading the user's manual.
+
+   2. Sample banks, presets, and instruments to accompany the cookbook.
+
+To recreate the PDF file (the latest version is stored in the "pdf"
+directory), you will need to install GNU make, latexmk, tex-live, pdf2latex,
+and other resources related to LaTeX and PDF support.  If everything is
+in place, then change to the "tex" directory, and a simple "make" command
+will create the document.
+
+"make clean" in the "tex" directory will remove all of the generated
+products.
+
+Actually, both "make" and "make clean" are supported from the top-level
+of the project, for convenience, and "make" archives the PDF file if the
+build succeeds.
+
+Lastly, although this cookbook is well underway, it needs a lot of work and
+a lot of help!
+
