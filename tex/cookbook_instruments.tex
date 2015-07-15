@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2015-07-12
-% \update      2015-07-14
+% \update      2015-07-15
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -47,9 +47,12 @@
       \item \textbf{Saxophones}
    \end{enumber}
 
-   Of course, this is too much work to do all at once.  In the next section
-   we will assemble a quick-and-dirty basic GM bank with a lot of holes to
-   fill in, and add the instruments we create here as each matures.
+   For these recipes, the \texttt{banks} and \texttt{presets} directories will
+   be stored in the following directory of this project:
+
+   \begin{verbatim}
+      yoshimi/gm/demos
+   \end{verbatim}
 
 \subsection{Bells}
 \label{subsec:cookbook_instruments_bells}
@@ -98,7 +101,7 @@
    Also note that wave 2 (F) can be missing and the sound is still
    bell-like.
 
-   The file \texttt{yoshimi/banks/demo/Bells-440-ring-modulation.xiz} is the
+   The file \texttt{yoshimi/banks/demo/Bells-simple-addsynth.xiz} is the
    result of following the steps below.  We start, as usual, with a
    newly-started \textsl{Yoshimi} instance.
 
@@ -162,12 +165,15 @@
    waves in table~\ref{table:simple_bell_tones}.
    This instrument isn't perfect.  It's not quite equally tempered, though
    close.  The character of the tone changes a bit as the notes get higher.
+   One can fiddle with the relative amplitudes of the various voices to
+   change the character of this sound.
 
-\subsubsection{Bells by Ring Modulation}
-\label{subsec:cookbook_instruments_bells_by_ring}
-
+\subsubsection{Ring Modulation with 440 Hz Tone}
+\label{subsec:cookbook_instruments_ring_mod_440}
 
    Now for an initial demonstration of ring modulation.
+   This demonstration does not create a bell tone, but does show
+   the sound of modulation.
 
    Start with a fresh \textsl{Yoshimi} and a cleared instrument ("Simple
    Sound").  Open the virtual keyboard using the \textbf{virKbd} button.
@@ -184,6 +190,9 @@
       \item Open the ADDsynth editing window by clicking the \textbf{Edit} button
          in the bottom panel, and then clicking the ADDsynth \textbf{Edit}
          button in the edit window.
+      \item In the \textbf{Amplitude Env} sub-panel, increase the
+         \textbf{D.dt} and \textbf{R.dt} to give the current
+         sound a nice slow decay.
       \item Click on the \textbf{Show Voice Parameters} button.
          Note that it is \textbf{Current Voice 1}, and it should be enabled.
       \item Switch to \textbf{Current Voice} number 2 and enable it.
