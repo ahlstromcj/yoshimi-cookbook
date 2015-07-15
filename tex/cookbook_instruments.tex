@@ -62,6 +62,112 @@
 
    In the meantime, creating bells is a good excuse to master
    \textsl{Yoshimi}'s ring modulator.
+   However, we will first learn how to create a reasonable, clangy bell
+   using just a few voices in an ADDsynth part, and no need for modulation.
+
+\subsubsection{Bells by Voices}
+\label{subsec:cookbook_instruments_bells_by_voices}
+
+   The following table comes from a tutorial (\cite{bellsimple}).  Along
+   with a spectrum shown in reference \cite{bellspectrum}, it allows us to
+   recreate a simple, but realistic bell.
+
+\label{table:simple_bell_tones}
+\begin{longtable}{c c c c}
+   \caption{Simple Bell Tones} \\
+   \hline
+      \textbf{Wave Number} &
+      \textbf{Frequency Fraction} &
+      \textbf{Cents Offset} &
+      \textbf{Relative Amplitude} \\
+   \hline
+   \endfirsthead
+
+   1 &         0.56 &         -1000 &     0.5   \\
+   2 &         0.92 &         -140  &     1.0   \\
+   3 &         1.19 &         +300  &     0.5   \\
+   4 &         1.71 &         +930  &     0.25  \\
+   5 &         2.00 &         +1200 &     0.125 \\
+   6 &         2.74 &         +1745 &     0.125 \\
+   7 &         3.00 &         +1901 &     0.125 \\
+   8 &         3.76 &         +2290 &     0.125 \\
+   9 &         4.00 &         +2400 &           \\
+\end{longtable}
+
+   Note that the frequencies are relative to the fundamental frequency (F).
+   Also note that wave 2 (F) can be missing and the sound is still
+   bell-like.
+
+   The file \texttt{yoshimi/banks/demo/Bells-440-ring-modulation.xiz} is the
+   result of following the steps below.  We start, as usual, with a
+   newly-started \textsl{Yoshimi} instance.
+
+   \begin{enumber}
+      \item Open the ADDsynth editing window by clicking the \textbf{Edit}
+         button in the bottom panel, and then clicking the ADDsynth
+         \textbf{Edit} button in the edit window.
+      \item Click on the \textbf{Show Voice Parameters} button.
+         Note that it is \textbf{Current Voice 1}, and it should be enabled.
+      \item For voice 1, make the following settings:
+         \begin{itemize}
+            \item \textbf{Octave}: Set to 0.
+            \item \textbf{Detune Type}: Set to E1200cents.
+            \item \textbf{FREQUENCY Detune}: Set to -1000 approximately.
+         \end{itemize}
+      \item Go to voice 2, and make the following settings:
+         \begin{itemize}
+            \item \textbf{Octave}: Set to 0.
+            \item \textbf{Detune Type}: Set to E1200cents.
+            \item \textbf{FREQUENCY Detune}: Set to -140 approximately.
+         \end{itemize}
+      \item Go to voice 3, and make the following settings:
+         \begin{itemize}
+            \item \textbf{Octave}: Set to 0.
+            \item \textbf{Detune Type}: Set to E1200cents.
+            \item \textbf{FREQUENCY Detune}: Set to 300 approximately.
+         \end{itemize}
+      \item Go to voice 4, and make the following settings:
+         \begin{itemize}
+            \item \textbf{Octave}: Set to 0.
+            \item \textbf{Detune Type}: Set to E1200cents.
+            \item \textbf{FREQUENCY Detune}: Set to 930 approximately.
+         \end{itemize}
+      \item Go to voice 5, and make the following settings:
+         \begin{itemize}
+            \item \textbf{Octave}: Set to 1.
+            \item \textbf{Detune Type}: Set to Default.
+            \item \textbf{FREQUENCY Detune}: Set to 0.
+         \end{itemize}
+      \item Go to voice 6, and make the following settings:
+         \begin{itemize}
+            \item \textbf{Octave}: Set to 1.
+            \item \textbf{Detune Type}: Set to E1200cents.
+            \item \textbf{FREQUENCY Detune}: Set to 545 approximately.
+         \end{itemize}
+      \item Go to voice 7, and make the following settings:
+         \begin{itemize}
+            \item \textbf{Octave}: Set to 1.
+            \item \textbf{Detune Type}: Set to E1200cents.
+            \item \textbf{FREQUENCY Detune}: Set to 700 approximately.
+         \end{itemize}
+      \item Go to voice 8, and make the following settings:
+         \begin{itemize}
+            \item \textbf{Octave}: Set to 1.
+            \item \textbf{Detune Type}: Set to E1200cents.
+            \item \textbf{FREQUENCY Detune}: Set to 1090 approximately.
+         \end{itemize}
+   \end{enumber}
+
+   These settings then end up roughly matching the settings of the first 8
+   waves in table~\ref{table:simple_bell_tones}.
+   This instrument isn't perfect.  It's not quite equally tempered, though
+   close.  The character of the tone changes a bit as the notes get higher.
+
+\subsubsection{Bells by Ring Modulation}
+\label{subsec:cookbook_instruments_bells_by_ring}
+
+
+   Now for an initial demonstration of ring modulation.
 
    Start with a fresh \textsl{Yoshimi} and a cleared instrument ("Simple
    Sound").  Open the virtual keyboard using the \textbf{virKbd} button.

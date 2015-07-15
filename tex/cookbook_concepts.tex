@@ -1,0 +1,63 @@
+%-------------------------------------------------------------------------------
+% cookbook_concepts
+%-------------------------------------------------------------------------------
+%
+% \file        cookbook_concepts.tex
+% \library     Documents
+% \author      Chris Ahlstrom
+% \date        2015-07-15
+% \update      2015-07-15
+% \version     $Revision$
+% \license     $XPC_GPL_LICENSE$
+%
+%     Provides the concepts.
+%
+%-------------------------------------------------------------------------------
+
+\section{Concepts}
+\label{sec:concepts}
+
+   This section, like its counterpart in our \textsl{Yoshimi User Manual},
+   presents some useful concepts, while keeping them out of the way.
+
+\subsection{Concepts / Terms}
+\label{subsec:concepts_terms}
+
+   This section doesn't provide comprehensive coverage of terms.  It
+   covers mainly terms that puzzled the author at first.
+
+\subsubsection{Concepts / Terms / cent}
+\label{subsubsec:concepts_terms_cent}
+
+   The \textbf{cent}
+   \index{cent}
+   is a logarithmic unit of measure used for musical
+   intervals.  Twelve-tone equal temperament divides the octave into 12
+   semitones of 100 cents each. Typically, cents are used to measure
+   extremely small finite intervals, or to compare the sizes of comparable
+   intervals in different tuning systems.
+   The interval of one cent is much too small to be heard between
+   successive notes.
+
+   Since the detuning provided in \textsl{Yoshimi} is based primarily on
+   cents (and octaves), it pays to understand cents.  If a given frequency
+   \texttt{f'} is offset from another frequency \texttt{f}, the
+   relationships between them in semitones are:
+
+   \[f' = f * 2^s/12\]
+
+   \[s = 12 log (f'/f) / log 2\]
+
+   In cents, these relationships become:
+
+   \[f' = f * 2^s/1200\]
+
+   \[s = 1200 log (f'/f) / log 2\]
+
+   These relationships hold whether \texttt{f'} is less than or greater than
+   \texttt{f}.  They provide an easy way to determine how much to detune a
+   frequency in \textsl{Yoshimi}.
+
+%-------------------------------------------------------------------------------
+% vim: ts=3 sw=3 et ft=tex
+%-------------------------------------------------------------------------------

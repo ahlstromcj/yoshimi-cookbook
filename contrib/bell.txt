@@ -1,0 +1,74 @@
+http://computermusicresource.com/Simple.bell.tutorial.html
+and
+http://www.fm8tutorials.com/wp-content/uploads/2012/03/Bell-spectrum.png
+
+Easy bell generation.
+F == Fundamental frequency
+
+Wave        Frequency      Cents    Relative   Unit       Simpler
+ Number      Percentage    Offset    Amplitude Marker     Marker
+1           0.56           -1000       0.5                  *
+2           0.92           -140        1.0       *          *
+3           1.19           +300        0.5       *
+4           1.71           +930        0.25      -
+5           2.00           +1200       0.125     *          *
+6           2.74           +1745       0.125                *
+7           3.00           +1901       0.125     *          *
+8           3.76           +2290       0.125                *
+9           4.00           +2400                 *          -
+
+Note that wave 2 (F) can be missing
+
+F = 200
+
+Wave        Frequency
+1           112
+2           184 (or 200)
+3           238
+4           342
+5           400
+6           548
+7           600
+8           752
+9           800
+
+
+Given f1 and f2, with f1 < f2, the frequencies present are 
+f2 + f1 and f2 - f1. 
+
+Given f and g, with f < g, the frequencies present are 
+g + f and g - f. 
+
+
+f' = f * 2^s/12            s = 12 log (f'/f) / log 2
+   = f * 2^c/1200          c = 1200 log (f'/f) / log 2
+
+semitone    ratio
+
+-12         0.5
+-11         0.5297
+-10         0.5612
+-9          0.5946
+-8          0.6300
+-7          0.6674
+-6          0.7071
+-5          0.7492
+-4          0.7937
+-3          0.8409
+-2          0.8909
+-1          0.9439
+0           1
+1           1.0595      
+2           1.1225
+3           1.1892
+4           1.2599
+5           1.3348
+6           1.4142
+7           1.4983
+8           1.5874
+9           1.6818
+10          1.7818
+11          1.8877
+12          2
+
+
