@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2015-07-12
-% \update      2015-07-13
+% \update      2015-07-14
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -70,7 +70,10 @@
 
    The following steps will set up two tones, voice 1 and voice 2, and voice
    2 will use voice 1 as an external modulator.
- 
+   Note that you can accomplish most of these steps by loading the project
+   file \texttt{yoshimi/banks/demo/Bells-440-ring-modulation.xiz}, but use
+   that only as a last resort.
+
    \begin{enumber}
       \item Open the ADDsynth editing window by clicking the \textbf{Edit} button
          in the bottom panel, and then clicking the ADDsynth \textbf{Edit}
@@ -78,7 +81,9 @@
       \item Click on the \textbf{Show Voice Parameters} button.
          Note that it is \textbf{Current Voice 1}, and it should be enabled.
       \item Switch to \textbf{Current Voice} number 2 and enable it.
-         Move the \textbf{FREQUENCY Detune} slider a bit, and play the "C"
+         Play the "C" note, and observe that it is the same frequency, but
+         louder.
+      \item Move the \textbf{FREQUENCY Detune} slider a bit, and play the "C"
          note.  It should sound the same as before, but change slowly in
          amplitude, as heard and as seen on the \textbf{VU meter}.
          Try to set the detune back to 0; this is easier if you highlight
@@ -87,18 +92,18 @@
          select the \textbf{RING} value.  (However, feel free to select one
          of the other modulators, to experiment, once you've mastered
          the ring modulator.)  Press the "C" key again, and notice
-         that the tone is a lot louder, but not yet modulated.
-      \item In \textbf{External Mod.} for voice 2, select
+         that the tone character changes a bit.  This is due to the internal
+         modulator.
+      \item For \textbf{External Mod.} for voice 2, select
          \textbf{Ext.M} 1, to use the voice 1 as the internal modulator.
+         The "C" note may change in character, but only slightly.
+         Apparently the default internal modulator is the same as the
+         default external voice 1 waveform.
       \item To actually hear some modulation, we have to separate the
-         frequencies of the two voices.  Click the \textbf{440Hz} check-box in
-         the \textbf{FREQUENCY} section.  Press the "C" key and verify hearing
-         a two-tone signal, somewhat like a phone tone.
-         One can unselect the \textbf{440Hz} button.  If you go back to 
-         voice 1 and select the \textbf{440Hz} button there, the same effect
-         will occur.
-         But unselect it again, and verify that only one apparent (loud)
-         tone now sounds.
+         frequencies of voice 1 and voice 2.  Click the \textbf{440Hz}
+         check-box in the \textbf{FREQUENCY} section of voice 1.  Press the
+         "C" key and verify hearing a two-tone signal, somewhat like a phone
+         tone.
       \item Now go back to voice 2 and click the \textbf{Change} button to
          bring up the ADDsynth oscillator dialog.
       \item Move the slider to maximum for harmonic 10.  Press the "C" key
@@ -108,7 +113,8 @@
          \textbf{FREQUENCY} section and listen to the effects.
    \end{enumber}
 
-   Now we need to see if we can apply modulation across instruments!
+   Now we need to see if we can apply modulation across instruments.
+   Sadly, this does not seem to be possible.
 
 \subsection{Ethnic}
 \label{subsec:cookbook_instruments_ethnic}
