@@ -342,7 +342,66 @@
    Instruments we have not found, and would like to synthesize, are:
    bagpipes and arabic pipes.
 
+\subsubsection{Ethnic / Steel Drums}
+\label{subsubsec:cookbook_instruments_ethnic_steeldrums}
+
    \index{steel drums}
+   There is a steel-drum instrument that ships with \textsl{Yoshimi}:
+   \texttt{/usr/share/yoshimi/banks/The\_Mysterious\_Bank/0122-pseudo\_steeldrums.xiz}.
+   It is an ADDsynth module comprised of three voices:
+
+   \begin{enumber}
+      \item A \textbf{Unison}-enabled voice of \textbf{Size} = 10 and a
+         \textbf{Frequency Spread} of 44.6 cents.
+      \item Another voice that is exactly the same as the first, except that
+         it has its \textbf{Amplitude Env} sub-panel enabled, to add more
+         volume and character to the instrument, it is stronger on the
+         right, and, most importantly, an octave higher.
+      \item Another voice that is exactly the same as the second, 
+         except it is an octave lower than voice 0.
+   \end{enumber}
+
+   If voice 2 and 3 are disabled, the instrument still sounds reminiscent of
+   steel drums, so obviously the overall amplitude envelope is important.
+
+   Can we do better?  Well, the instrument above sounds too pristine.
+   We should be able to add some "dirt" to the instrument to make it sound
+   more lively.
+
+\begin{figure}[H]
+   \centering 
+   \includegraphics[scale=0.85]{contrib/steel_drum_spectrum.png}
+   \caption{Typical Steel Drum Spectrum}
+   \label{fig:cookbook_bank_steeldrum_spectrum}
+\end{figure}
+
+   Taking a cue from this figure, our steel drums extend the original
+   by adding a couple more tones at octave intervals.  Also, some slight
+   detuning was introduced to add to the flavor.
+   We could probably add a couple more, and carefully contour their
+   amplitude levels to match the spectrum levels shown above.
+
+   To hear the ADDsynth steel drum sound, load the file
+   \texttt{yoshimi/banks/demo/Add\_Pseudo\_Steel\_Drums.xiz}.
+
+   Not content with that, with our hands behind our back, we pull
+   SUBsynth from a hat.  The SUBsynth settings for a steel drum are shown in
+   the following figure:
+
+\begin{figure}[H]
+   \centering 
+   \includegraphics[scale=0.75]{demo/steeldrums-subsynth-editor.png}
+   \caption{Steel Drum SUBsynth Configuration}
+   \label{fig:cookbook_bank_steeldrum_subsynth}
+\end{figure}
+
+   Note the top box of slider controls.  It sets the amplitudes of
+   the harmonics, and should vaguely resemble the spectrum diagram.
+   The lower box of slider controls sets the bandwidth of each harmonic,
+   with the fundamental frequency being very narrow.
+
+   To hear the SUBsynth steel drum sound, load the file
+   \texttt{yoshimi/banks/demo/Sub\_Pseudo\_Steel\_Drums.xiz}.
 
 \subsection{Drums}
 \label{subsec:cookbook_instruments_drums}
