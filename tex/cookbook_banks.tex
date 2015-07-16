@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2015-07-12
-% \update      2015-07-15
+% \update      2015-07-16
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -32,11 +32,17 @@
    General MIDI program number.  There are simply too many to be able to
    evaluate them all.
 
-   For this recipe, the \texttt{banks} and \texttt{presets} directories will
-   be stored in the following directory of this project:
+   For this recipe, the \texttt{banks} and \texttt{presets} will
+   be stored in the following directories of this project:
+   \index{directories!demo bank}
+   \index{directories!GM basic bank}
+   \index{directories!demo presets}
 
    \begin{verbatim}
-      yoshimi/gm/basic
+      yoshimi/banks
+      yoshimi/banks/demo
+      yoshimi/banks/gm-basic
+      yoshimi/presets
    \end{verbatim}
 
 \subsection{Creating a Basic GM Bank}
@@ -45,7 +51,10 @@
    Creating even a basic General MIDI bank is beset with issues, even if one
    has at hand a large number of pre-built instruments.
 
-   First, what is the purpose of the General MIDI specific?  To provide a
+   First, what is the purpose of the General MIDI specific?
+   \index{GM}
+   \index{General MIDI}
+   To provide a
    dependable set of instruments so that tunes will sound basically similar
    on different GM-compliant synthesizers.  That's about it.  It doesn't
    guarantee that the sounds are consistent, nor does it guarantee that they
@@ -65,7 +74,9 @@
    plug in any old sound and wait for others to step up.
 
    Nonetheless, let's forge ahead.  The project file
-   \texttt{contrib/instrument.ods} is a \textsl{LibreOffice} spreadsheet
+   \texttt{contrib/instrument.ods}
+   \index{GM!spreadsheet}
+   is a \textsl{LibreOffice} spreadsheet
    that represents some research in finding GM-compatible instruments.
    It's pretty bad; maybe 50\% useful.
 
@@ -73,6 +84,8 @@
    into the project directory \texttt{yoshimi/banks/gm/basic}.
    We show the banks in table~\ref{table:gm_basic_files}
    for convenience.
+
+   \index{GM!table}
 
 \input{gm_basic_table}
 
@@ -83,8 +96,8 @@
 \subsection{Root Paths}
 \label{subsec:cookbook_banks_root_paths}
 
-   The first thing to do is to add the yoshimi-cookbook banks directory to 
-   your setup.
+   The first thing to do is to add the yoshimi-cookbook \texttt{banks}
+   directory to your setup.
 
    Run \textsl{Yoshimi}, and navigate the following user-interface path:
    \textsl{Menu / Instrument / Show Root Paths ...}
@@ -101,8 +114,9 @@
 \end{figure}
 
    Click on the new directory.
-   It has ID = 2 in that diagram.  We will refer to this value as
-   the "GM path ID", and the actual path as the "GM path".
+   \index{GM!bank}
+   It has ID = 3 in that diagram.  We will refer to this value as
+   the "banks path".
    Now click the \textbf{Make current} button.
    Verify that it now has the asterisk. 
    Click the \textbf{Save and Close} button.
@@ -116,27 +130,31 @@
 
 \begin{figure}[H]
    \centering 
-   \includegraphics[scale=1.0]{menu/Instrument/solitary_basic_bank.png}
-   \caption{One Basic Bank}
-   \label{fig:cookbook_bank_solitary_bank}
+   \includegraphics[scale=0.75]{menu/Instrument/demo_gm-basic_banks.png}
+   \caption{Two Banks, Demo and Basic GM}
+   \label{fig:cookbook_bank_demo_gm_basic}
 \end{figure}
    
+   \index{directories!GM basic bank}
    Click on the "gm-basic" bank.  The larger dialog below will be shown.
 
 \begin{figure}[H]
    \centering 
-   \includegraphics[scale=1.0]{menu/Instrument/banks_gm_basic.png}
+   \includegraphics[scale=0.85]{menu/Instrument/banks_gm_basic.png}
    \caption{A General MIDI Basic Bank}
    \label{fig:cookbook_bank_basic_bank}
 \end{figure}
 
-Remember that these banks have GM names; the original files used to create
-each one are listed in the spreadsheet mentioned in the previous section.
+   Remember that these banks have GM names; the original files used to
+   create each one are listed in the spreadsheet mentioned in the previous
+   section.
 
-Also note the drum kit, with an ID of 129.  Normally, drum kits might be
-stored in a bank of drum kits, but here we have a GM-compliant drum kit,
-compliant in the sense that most of the keys are mapped correctly,
-and all keys will play \textsl{something}.
+   \index{drum kit}
+   \index{GM!drum kit}
+   Also note the drum kit, with an ID of 129.  Normally, drum kits might be
+   stored in a bank of drum kits, but here we have a GM-compliant drum kit,
+   compliant in the sense that most of the keys are mapped correctly, and
+   all keys will play \textsl{something}.
 
 %-------------------------------------------------------------------------------
 % vim: ts=3 sw=3 et ft=tex

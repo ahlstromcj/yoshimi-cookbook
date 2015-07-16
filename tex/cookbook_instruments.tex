@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2015-07-12
-% \update      2015-07-15
+% \update      2015-07-16
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -47,11 +47,13 @@
       \item \textbf{Saxophones}
    \end{enumber}
 
-   For these recipes, the \texttt{banks} and \texttt{presets} directories will
+   For these recipes, the \texttt{banks} directories will
    be stored in the following directory of this project:
+   \index{directories!demo bank}
 
    \begin{verbatim}
-      yoshimi/gm/demos
+      yoshimi/banks
+      yoshimi/banks/demo
    \end{verbatim}
 
 \subsection{Bells}
@@ -59,10 +61,12 @@
 
    The bells patches we've heard so far are nice, but a bit anemic.
    
-   Good bell patches need to include ring modulation, done right.  We're not
+   \index{ring modulation}
+   Good bell patches are easier with ring modulation, done right.  We're not
    sure if there are any such patches extant; please send us to them if
    there are some.
 
+   \index{bells}
    In the meantime, creating bells is a good excuse to master
    \textsl{Yoshimi}'s ring modulator.
    However, we will first learn how to create a reasonable, clangy bell
@@ -74,33 +78,37 @@
    The following table comes from a tutorial (\cite{bellsimple}).  Along
    with a spectrum shown in reference \cite{bellspectrum}, it allows us to
    recreate a simple, but realistic bell.
+   \index{bells!spectrum}
+   In this table, \texttt{F} represents the fundamental frequency, i.e. the
+   note being played.
 
 \label{table:simple_bell_tones}
 \begin{longtable}{c c c c}
    \caption{Simple Bell Tones} \\
    \hline
       \textbf{Wave Number} &
-      \textbf{Frequency Fraction} &
+      \textbf{Frequency} &
       \textbf{Cents Offset} &
       \textbf{Relative Amplitude} \\
    \hline
    \endfirsthead
 
-   1 &         0.56 &         -1000 &     0.5   \\
-   2 &         0.92 &         -140  &     1.0   \\
-   3 &         1.19 &         +300  &     0.5   \\
-   4 &         1.71 &         +930  &     0.25  \\
-   5 &         2.00 &         +1200 &     0.125 \\
-   6 &         2.74 &         +1745 &     0.125 \\
-   7 &         3.00 &         +1901 &     0.125 \\
-   8 &         3.76 &         +2290 &     0.125 \\
-   9 &         4.00 &         +2400 &           \\
+   1 &  0.56F &  -1000 &   0.5   \\
+   2 &  0.92F &  -140  &   1.0   \\
+   3 &  1.19F &  +300  &   0.5   \\
+   4 &  1.71F &  +930  &   0.25  \\
+   5 &  2.00F &  +1200 &   0.125 \\
+   6 &  2.74F &  +1745 &   0.125 \\
+   7 &  3.00F &  +1901 &   0.125 \\
+   8 &  3.76F &  +2290 &   0.125 \\
+   9 &  4.00F &  +2400 &         \\
 \end{longtable}
 
    Note that the frequencies are relative to the fundamental frequency (F).
-   Also note that wave 2 (F) can be missing and the sound is still
+   Also note that wave 2 (close to F) can be missing, and the sound still is
    bell-like.
 
+   \index{files!bells addsynth}
    The file \texttt{yoshimi/banks/demo/Bells-simple-addsynth.xiz} is the
    result of following the steps below.  We start, as usual, with a
    newly-started \textsl{Yoshimi} instance.
@@ -112,57 +120,58 @@
       \item Click on the \textbf{Show Voice Parameters} button.
          Note that it is \textbf{Current Voice 1}, and it should be enabled.
       \item For voice 1, make the following settings:
-         \begin{itemize}
+         \begin{enumber}
             \item \textbf{Octave}: Set to 0.
             \item \textbf{Detune Type}: Set to E1200cents.
             \item \textbf{FREQUENCY Detune}: Set to -1000 approximately.
-         \end{itemize}
+         \end{enumber}
       \item Go to voice 2, and make the following settings:
-         \begin{itemize}
+         \begin{enumber}
             \item \textbf{Octave}: Set to 0.
             \item \textbf{Detune Type}: Set to E1200cents.
             \item \textbf{FREQUENCY Detune}: Set to -140 approximately.
-         \end{itemize}
+         \end{enumber}
       \item Go to voice 3, and make the following settings:
-         \begin{itemize}
+         \begin{enumber}
             \item \textbf{Octave}: Set to 0.
             \item \textbf{Detune Type}: Set to E1200cents.
             \item \textbf{FREQUENCY Detune}: Set to 300 approximately.
-         \end{itemize}
+         \end{enumber}
       \item Go to voice 4, and make the following settings:
-         \begin{itemize}
+         \begin{enumber}
             \item \textbf{Octave}: Set to 0.
             \item \textbf{Detune Type}: Set to E1200cents.
             \item \textbf{FREQUENCY Detune}: Set to 930 approximately.
-         \end{itemize}
+         \end{enumber}
       \item Go to voice 5, and make the following settings:
-         \begin{itemize}
+         \begin{enumber}
             \item \textbf{Octave}: Set to 1.
             \item \textbf{Detune Type}: Set to Default.
             \item \textbf{FREQUENCY Detune}: Set to 0.
-         \end{itemize}
+         \end{enumber}
       \item Go to voice 6, and make the following settings:
-         \begin{itemize}
+         \begin{enumber}
             \item \textbf{Octave}: Set to 1.
             \item \textbf{Detune Type}: Set to E1200cents.
             \item \textbf{FREQUENCY Detune}: Set to 545 approximately.
-         \end{itemize}
+         \end{enumber}
       \item Go to voice 7, and make the following settings:
-         \begin{itemize}
+         \begin{enumber}
             \item \textbf{Octave}: Set to 1.
             \item \textbf{Detune Type}: Set to E1200cents.
             \item \textbf{FREQUENCY Detune}: Set to 700 approximately.
-         \end{itemize}
+         \end{enumber}
       \item Go to voice 8, and make the following settings:
-         \begin{itemize}
+         \begin{enumber}
             \item \textbf{Octave}: Set to 1.
             \item \textbf{Detune Type}: Set to E1200cents.
             \item \textbf{FREQUENCY Detune}: Set to 1090 approximately.
-         \end{itemize}
+         \end{enumber}
    \end{enumber}
 
    These settings then end up roughly matching the settings of the first 8
-   waves in table~\ref{table:simple_bell_tones}.
+   waves in \tableref{table:simple_bell_tones}.
+   \index{bells}
    This instrument isn't perfect.  It's not quite equally tempered, though
    close.  The character of the tone changes a bit as the notes get higher.
    One can fiddle with the relative amplitudes of the various voices to
@@ -172,18 +181,25 @@
 \label{subsec:cookbook_instruments_ring_mod_440}
 
    Now for an initial demonstration of ring modulation.
-   This demonstration does not create a bell tone, but does show
+   This demonstration does not quite create a bell tone, but does show
    the sound of modulation.
 
    Start with a fresh \textsl{Yoshimi} and a cleared instrument ("Simple
    Sound").  Open the virtual keyboard using the \textbf{virKbd} button.
-   Click a key and verify that you can hear a tone.  We'll use the middle C
-   key (the "comma" on the PC keyboard) as a reference.
+   Click a key and verify that you can hear a tone.
+   \index{"C" note}
+   \index{comma key}
+   We'll use the middle C
+   key (the "comma" on the PC keyboard) as a reference.  We will call it
+   the "C" note.
 
    The following steps will set up two tones, voice 1 and voice 2, and voice
    2 will use voice 1 as an external modulator.
    Note that you can accomplish most of these steps by loading the project
-   file \texttt{yoshimi/banks/demo/Bells-440-ring-modulation.xiz}, but use
+   file
+   \index{bells}
+   \index{files!bells 440}
+   \texttt{yoshimi/banks/demo/Bells-440-ring-modulation.xiz}, but use
    that only as a last resort.
 
    \begin{enumber}
@@ -231,6 +247,92 @@
    Now we need to see if we can apply modulation across instruments.
    Sadly, this does not seem to be possible.
 
+   Increase the \textbf{D.dt} and \textbf{R.dt} values of the main
+   \textbf{Amplitude Env} to give this sound the onset and decay of a bell,
+   and it then sounds less abstract, and more like a bell.
+   Of course, this kind of bell is even less tunable than the simple
+   bell of the previous section.
+
+   Another thing to try with this setup is to simply change voice 2 to use
+   different types of modulators besides \textbf{RING}.
+   \textbf{MORPH} sounds basically identical to \textbf{RING}.
+   \textbf{PM} seems to expose higher harmonics, making the sound louder and
+   brighter.
+   \textbf{FM} sounds similar to PM, but softer and smoother.
+   \textbf{PITCH} is disabled.
+
+   Another experiment is to disable the modulator (voice 1 here) and see how
+   that changes the sound; all it should do is drop voice 1 from the
+   spectrum -- voice 1 will still be used as the modulator.
+
+   Finally, by adding a slow decay to this sound, it becomes amazingly more
+   bell-like.
+
+\subsubsection{Complex Bells by Ring Modulation}
+\label{subsec:cookbook_instruments_bells_by_ring_mod}
+
+   The next step is to make the bells more complex, by combining the methods
+   of the previous two sections.
+   Recall \tableref{table:simple_bell_tones}.
+   It shows the 9 frequencies in the simple bell spectrum, though we could
+   define only 8 of them.  How can we best add extra frequencies?
+   \index{bells}
+   We can ring-modulate the higher frequencies against one of the lower
+   frequencies.
+
+\label{table:ring_mod_bell_tones}
+\begin{longtable}{l l l l l}
+   \caption{Ring Modulation Bell Tones} \\
+   \hline
+      \textbf{Wave Number} &
+      \textbf{Frequency} &
+      \textbf{Mod Frequency} &
+      \textbf{f2-f1} &
+      \textbf{f2+f1} \\
+   \hline
+   \endfirsthead
+
+   1 &  0.56F &  ----- &  -----   &  -----   \\
+   2 &  0.92F &  0.56F &  0.36F   &  1.48F   \\
+   3 &  1.19F &  0.56F &  0.63F*  &  1.75F*  \\
+   4 &  1.71F &  0.56F &  1.15F*  &  2.27F   \\
+   5 &  2.00F &  0.56F &  1.44F   &  2.56F   \\
+   6 &  2.74F &  0.56F &  2.18F   &  3.30F   \\
+   7 &  3.00F &  0.56F &  2.44F   &  3.56F   \\
+   8 &  3.76F &  0.56F &  3.20F   &  4.32F   \\
+\end{longtable}
+
+   The asterisk marks frequencies that are close to existing
+   frequencies.   Luckily, there are only three of them, so our
+   modulation should add a good number of frequencies.
+
+   \begin{enumber}
+      \item Load the file \texttt{yoshimi/banks/demo/Bells-simple-addsynth.xiz}
+         to save a lot of steps.  The next steps add voice 1 as a ring
+         modulator for voices 2 through 8.
+      \item Open the ADDsynth editing window by clicking the \textbf{Edit}
+         button in the bottom panel, and then clicking the ADDsynth
+         \textbf{Edit} button in the edit window.
+      \item Click on the \textbf{Show Voice Parameters} button.
+         Note that it is \textbf{Current Voice 1}, and it should be enabled.
+      \item Go to voice 2 and do the following steps:
+         \begin{enumber}
+            \item In the \textbf{MODULATOR} section (greyed out), change the
+               \textbf{Type} from \textbf{OFF} to \textbf{RING}.
+            \item Changes the \textbf{External Mod.} dropdown from
+               \textbf{Off} to \textbf{ExtMod. 1}.
+         \end{enumber}
+      \item Go to voice 3 and repeat those steps.  Note how all the voices
+         below the current voice become available as modulators.
+   \end{enumber}
+
+   We saved the result in the file
+   \index{files!bells ring mod}
+   \texttt{yoshimi/banks/demo/Bells-ringmod-addsynth.xiz} for safe-keeping.
+
+   QUESTION:  If one loads and instrument and tinkers with it, but do not
+   save it, does \textsl{Yoshimi} save it on exit anyway?
+
 \subsection{Ethnic}
 \label{subsec:cookbook_instruments_ethnic}
 
@@ -240,6 +342,8 @@
    Instruments we have not found, and would like to synthesize, are:
    bagpipes and arabic pipes.
 
+   \index{steel drums}
+
 \subsection{Drums}
 \label{subsec:cookbook_instruments_drums}
 
@@ -247,10 +351,130 @@
    GM-compliant drum kit with solid sounds, and we think we've done it, with
    the help of an existing kit.
 
+   \index{drum kit}
+   \index{GM!drum kit}
+
 \subsection{Effects}
 \label{subsec:cookbook_instruments_effects}
 
+   This section documents the various "effects" instruments we've created.
+
+\subsubsection{Effects / Dial Tones}
+\label{subsubsec:cookbook_instruments_effects_dialtones}
+
    We've created a nice dial-tone effect that we'll describe here.
+   Dial tones consist of two notes, as shown by the
+   \textbf{Low F} and \textbf{High F} columns in the following table.
+
+\label{table:effect_dial_tones}
+\begin{longtable}{l l l l l l l l l l}
+   \caption{DTMF Frequencies Table} \\
+   \hline
+      \textbf{Tag} &
+      \textbf{DTMF} &
+      \textbf{Kit\#} &
+      \textbf{MIDI\#} &
+      \textbf{Low} &
+      \textbf{Low F} &
+      \textbf{Actual F} &
+      \textbf{High} &
+      \textbf{High F} &
+      \textbf{Actual F} \\
+   \hline
+   \endfirsthead
+
+   1 &  1        & 5  & 53 & F3 &  697 &  705 &  F5     & 1209 &  1245  \\
+   2 &  2        & 6  & 77 & F5 &  697 &  705 &  F5     & 1336 &  1337  \\
+   3 &  3        & 7  & 89 & F6 &  697 &  698 &  F5     & 1477 &  1468  \\
+   4 &  4        & 8  & 55 & G3 &  770 &  770 &  G5 -   & 1209 &  1236  \\
+   5 &  5        & 9  & 79 & G5 &  770 &  776 &  G5 -   & 1336 &  1334  \\
+   6 &  6        & 10 & 91 & G6 &  770 &  773 &  G5 -   & 1477 &  1462  \\
+   7 &  7        & 11 & 57 & A3 &  852 &  855 &  G\#5 + & 1209 &  1245  \\
+   8 &  8        & 12 & 81 & A5 &  852 &  868 &  G\#5 + & 1336 &  1327  \\
+   9 &  9        & 13 & 93 & A6 &  852 &  866 &  G\#5 + & 1477 &  1480  \\
+   * &  *        & 14 & 59 & B3 &  941 &  948 &  A\#5 + & 1209 &  1257  \\
+   0 &  0        & 15 & 83 & B5 &  941 &  968 &  A\#5 + & 1336 &  1281  \\
+  \# &  \#       & 16 & 95 & B6 &  941 &  950 &  A\#5 + & 1477 &  1480  \\
+   A &  A        & -- & -- & A2 &  697 &  --- &  F5     & 1633 &  ---   \\
+   B &  B        & -- & -- & B2 &  770 &  --- &  G5 -   & 1633 &  ---   \\
+   C &  C        & -- & -- & C2 &  852 &  --- &  G\#5 + & 1633 &  ---   \\
+   D &  D        & -- & -- & D2 &  941 &  --- &  A\#5 + & 1633 &  ---   \\
+   b &  busy     & 2  & 71 & B4 &  480 &  472 &  B4 -   & 620  &  622   \\
+   r &  ringback & 3  & 69 & A4 &  440 &  440 &  A4     & 480  &  480   \\
+   d &  dialtone & 4  & 65 & F4 &  350 &  350 &  F4     & 440  &  440   \\
+\end{longtable}
+
+   This table is implemented in a \textsl{Yoshimi kit}.  Each note in the
+   kit is created by making an ADDsynth instrument with two voices.  The
+   lower voice generally corresponds to the note being play, with an offset,
+   if needed, to achieve close to the proper frequency for the lower note of
+   the DTMF tone.
+   The second voice corresponds to the other note, and it is detune
+   appropriately to achieve close to the proper frequency for the upper note
+   of the DTMF tone.
+
+   The following figure shows the kit dialog:
+
+\begin{figure}[H]
+   \centering 
+   \includegraphics[scale=1.0]{demo/DTMF_kit_edit.png}
+   \caption{Kit Edit Dialog for DTMF Kit}
+   \label{fig:cookbook_instruments_dtmf_kit_edit}
+\end{figure}
+
+   To edit the kit, follow the steps below.  If desired, open the
+   instrument file
+   \index{files!DTMF kit}
+   \texttt{yoshimi/banks/demo/DTMF\_Kit.xiz} to save some
+   work.
+
+   \begin{enumber}
+      \item Open the kit editing window by clicking the \textbf{Edit}
+         button in the bottom panel, and then clicking the
+         \textbf{Kit Edit} button in the edit window.
+      \item Make sure that the \textbf{Mode} is set to \textbf{Single}.
+      \item Make sure that the \textbf{Drum mode} is enabled.
+      \item For all 16 kit items, make sure that the \textbf{FX.r}
+         selections are set to \textbf{OFF}.
+      \item For kit items 2 to 16, enable the the \textbf{ADsynth}
+         check-box.
+      \item For kit items 2 to 16, perform the following procedure to set up
+         the two frequencies correctly as per the table above:
+         \begin{enumber}
+            \item In the kit editor, click the \textbf{Name} field and enter
+               the name of the DTMF tone item being edited.
+            \item In the kit editor, set \textbf{Min.k} and \textbf{Max.k}
+               to the value of the note that is less than or equal to the
+               lower note of the item listed in the table.
+            \item Click the ADDsynth \textbf{edit} button.
+            \item Click on the \textbf{Show Voice Parameters} button.
+               Note that it is \textbf{Current Voice 1}, and it should be
+               enabled.
+            \item Given the frequency for the note being edited, detune
+               voice 1 to achieve the desired lower frequency.
+            \item Change to voice 2, and enable it.
+            \item Given the frequency for the note being edited, detune
+               voice 1 to achieve the desired higher frequency.
+         \end{enumber}
+   \end{enumber}
+
+   The "Actual F" values were verifed using 24-Hz resolution (at 1200 Hz)
+   in the spectrum analyzer built into
+   \index{Audacity}
+   Audacity.
+   Sometimes it took a few
+   tries to get the best possible frequency.  We could list the detuning
+   values in a table; for now, you can see the values we ended up using.
+
+   The following figure shows the layout on the \textsl{Yoshimi} virtual
+   keyboard:
+
+\begin{figure}[H]
+   \centering 
+   \includegraphics[scale=1.0]{demo/DTMF-layout.png}
+   \caption{DTMF Layout on the Keyboard}
+   \label{fig:cookbook_instruments_DTMF_layout}
+\end{figure}
 
 \subsection{Piano}
 \label{subsec:cookbook_instruments_piano}
