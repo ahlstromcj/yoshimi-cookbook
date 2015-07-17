@@ -407,11 +407,80 @@
 \label{subsec:cookbook_instruments_drums}
 
    We want a decent drum kit that attempts to fill in the gaps for a
-   GM-compliant drum kit with solid sounds, and we think we've done it, with
+   GM-compliant drum kit with solid sounds, with
    the help of an existing kit.
 
+   It turns out that a "Natural Drum Kit", which we'd found separately on
+   the Internet a long time ago, is now part of the instruments
+   installed with \textsl{Yoshimi}.
    \index{drum kit}
    \index{GM!drum kit}
+   But long ago we used some of the sounds
+   from various kits to create our own "natural drum kit", and extended some
+   of the sounds across more (pitched) keys so that any MIDI drum note would
+   produce \textsl{some} sound.  We also made sure the sounds were laid out
+   in GM format as much as possible.
+
+   Fire up \textsl{Yoshimi} and load the instrument stored in
+   \texttt{yoshimi/banks/demo/Natural\_Drum\_Kit\_Basic.xiz}, and we'll walk
+   through it.
+
+\begin{figure}[H]
+   \centering 
+   \includegraphics[scale=0.85]{demo/natural_drum_kit_from_ds_2.png}
+   \caption{Natural Drum Kit from DS 2}
+   \label{fig:cookbook_bank_natural_drum_kit}
+\end{figure}
+
+   \textbf{Item 1} is the master control for the whole kit, determining the
+   range of keys that it covers and the effect (if any) it goes through.
+
+   \textbf{Item 2} and \textbf{Item 3} provide the two parts of the
+   "natural" snare drum.  Both parts are composed of an ADDsynth and a
+   SUBsynth section, and they provide 3 pitches of snare.
+
+   \index{natural drum!snare}
+   The "Snare - Stick + Snares" sections....
+
+   \index{natural drum!hihats}
+   \index{natural drum!cymbal}
+   \index{natural drum!side stick}
+   \index{natural drum!toms}
+   \index{natural drum!extra toms}
+   \index{natural drum!bass drums}
+   \index{natural drum!xxxxxxx}
+   \index{natural drum!xxxxxxx}
+   \index{natural drum!xxxxxxx}
+   MORE DESCRIPTIONS
+   MORE DESCRIPTIONS
+   MORE DESCRIPTIONS
+   MORE DESCRIPTIONS
+   MORE DESCRIPTIONS
+
+   Now, without defining more than one drum kit, we have only about 15
+   "drums" available to us in \textsl{Yoshimi}.  So we filled in the missing
+   drums with more "toms", just so some sound will be made.  The frequencies
+   of the upper toms get pretty crazy!  Here's a diagram of the keyboard
+   layout.  Correlate it with
+   \figureref{fig:cookbook_bank_natural_drum_kit}, to understand the
+   abbreviations.
+
+\begin{figure}[H]
+   \centering 
+   \includegraphics[scale=0.75]{demo/natural_drum_keyboard_layout.png}
+   \caption{Natural Drum Kit Keyboard Layout}
+   \label{fig:cookbook_bank_natural_drum_kit_layout}
+\end{figure}
+
+   For your reference, here is the full GM drum layout.  The diagram is
+   taken from WikiMedia.org.
+
+\begin{figure}[H]
+   \centering 
+   \includegraphics[scale=0.75]{demo/GMStandardDrumMap.png}
+   \caption{General MIDI Drum Kit Keyboard Layout}
+   \label{fig:cookbook_bank_general_drum_kit_layout}
+\end{figure}
 
 \subsection{Effects}
 \label{subsec:cookbook_instruments_effects}
