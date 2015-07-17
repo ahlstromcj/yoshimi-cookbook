@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2015-07-12
-% \update      2015-07-16
+% \update      2015-07-17
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -306,6 +306,7 @@
    frequencies.   Luckily, there are only three of them, so our
    modulation should add a good number of frequencies.
 
+   \index{files!bells addsynth}
    \begin{enumber}
       \item Load the file \texttt{yoshimi/banks/demo/Bells-simple-addsynth.xiz}
          to save a lot of steps.  The next steps add voice 1 as a ring
@@ -347,6 +348,7 @@
 
    \index{steel drums}
    There is a steel-drum instrument that ships with \textsl{Yoshimi}:
+   \index{files!steel drums}
    \texttt{/usr/share/yoshimi/banks/The\_Mysterious\_Bank/0122-pseudo\_steeldrums.xiz}.
    It is an ADDsynth module comprised of three voices:
 
@@ -382,6 +384,7 @@
    amplitude levels to match the spectrum levels shown above.
 
    To hear the ADDsynth steel drum sound, load the file
+   \index{files!steel drums}
    \texttt{yoshimi/banks/demo/Add\_Pseudo\_Steel\_Drums.xiz}.
 
    Not content with that, with our hands behind our back, we pull
@@ -401,7 +404,9 @@
    with the fundamental frequency being very narrow.
 
    To hear the SUBsynth steel drum sound, load the file
+   \index{files!steel drums}
    \texttt{yoshimi/banks/demo/Sub\_Pseudo\_Steel\_Drums.xiz}.
+   It's pretty nasty.
 
 \subsection{Drums}
 \label{subsec:cookbook_instruments_drums}
@@ -411,8 +416,8 @@
    the help of an existing kit.
 
    It turns out that a "Natural Drum Kit", which we'd found separately on
-   the Internet a long time ago, is now part of the instruments
-   installed with \textsl{Yoshimi}.
+   the Internet (from Dario Straulino) a long time ago, is now part of the
+   instruments installed with \textsl{Yoshimi}.
    \index{drum kit}
    \index{GM!drum kit}
    But long ago we used some of the sounds
@@ -422,8 +427,10 @@
    in GM format as much as possible.
 
    Fire up \textsl{Yoshimi} and load the instrument stored in
+   \index{files!natural drums}
    \texttt{yoshimi/banks/demo/Natural\_Drum\_Kit\_Basic.xiz}, and we'll walk
-   through it.
+   through it.  Click the \textbf{Edit} button in the bottom panel, and then
+   click the \textbf{Kit Edit} button.
 
 \begin{figure}[H]
    \centering 
@@ -440,22 +447,102 @@
    SUBsynth section, and they provide 3 pitches of snare.
 
    \index{natural drum!snare}
-   The "Snare - Stick + Snares" sections....
+   One distinguishing feature of the "Snare - Stick + Snares" item
+   is it's only ADDsynth voice.  Clickthe ADDsynth \textbf{Edit} button for
+   item 2 in the kit editor.  Then Click on the
+   \textbf{Show Voice Parameters} button.
+   Note that the \textbf{Amplitude Env} sub-panel is enabled, and uses a
+   Freemode envelope.  The voice is locked on \textbf{440Hz}, but detuned to
+   be a lot lower than that.  The \textbf{Voice Oscillator}
+   (click on the \textbf{Change} button) uses a
+   \index{power function}
+   \textbf{Base F.} (function)
+   set to \textbf{Power}
+   \index{pulse}
+   to generate a spike pulse.
+   There doesn't seem to be a way to temporarily mute an item, so we cannot
+   hear what this item would sound like on its own.
+
+   The SUBsynth part of the "Snare - Stick + Snares" item provide an
+   \textbf{Amplitude Env}, \textbf{Bandwidth Envelope}, and a rich set of
+   alternate harmonics of very narrow bandwidth.
+
+   The "Snare-Head+Resonance" item's ADDsynth settings 
+   provide Freemode \textbf{Amplitude Env} and \textbf{Frequency Envelope}
+   settings with the voice locked on \textbf{440Hz}, but detuned to
+   be a lot lower than that.  The \textbf{Voice Oscillator} is a sine wave.
+   Voice 2 is set to \textbf{NOISE}, but is disabled.  Something to try out?
+   Indeed, we changed voice 2 to a sine wave, moved it up an octave,
+   and now the the Snare keys have slightly different qualities, a barely
+   noticeable pitch.  A keeper!
+
+   The "Snare-Head+Resonance" item's SUBsynth settings are a set of
+   harmonics with a \textbf{Bandwidth Env}.
 
    \index{natural drum!hihats}
+   \textbf{Item 4} is the "HiHat closed 2" instrument, a SUBsynth-only item.
+   It provides an \textbf{Amplitude Env}, a \textbf{Bandwidth Env},
+   and a \textbf{Frequency Env} centered around 440 Hz, offset downward 2
+   octaves.  A number of harmonics are provided, obviously taken from some
+   spectral diagram of a cymbal.
+
+   \textbf{Item 5} is the "HiHat closed long 1" instrument, a SUBsynth-only
+   item.  It is the same as the "HiHat closed 2" instrument, but with a
+   longer amplitude envelope.
+
+   \textbf{Item 6} is the "HiHat open 1" instrument, a SUBsynth-only item.
+   Much like the other hi-hats, but with a Freemode
+   \textbf{Bandwidth Envelope}.
+
    \index{natural drum!cymbal}
+   \textbf{Item 7} provides the "Crash Cymbal 3" item.
+   It is composed of an ADDsynth and a SUBsynth section.
+   The ADDsynth provides a \textbf{Voice Oscillator} that, like
+   \textbf{Item1}, uses a \index{power function}
+   \textbf{Base F.} (function)
+   set to \textbf{Power}
+   \index{pulse}
+   to generate a spike pulse.
+
+   The SUBsynth section is similar to that of the
+   "Snare-Head+Resonance" (\textbf{Item 3}), a set of
+   harmonics with a \textbf{Bandwidth Env}.
+
    \index{natural drum!side stick}
-   \index{natural drum!toms}
-   \index{natural drum!extra toms}
+   \textbf{Item 8} is the "Side Stick" instrument, an ADDsynth-only item.
+   It's only voice, voice 1, is filtered white noise.
+   One can increase the \textbf{Q} value of the filter to make it a bit
+   metallic.  One can lower the \textbf{C.freq} value to make it sound like
+   a bigger stick.
+
+   \index{natural drum!pitched toms}
+   \textbf{Item 9} is the "Tom".  It is just a tone with an AR frequency
+   envelope.  The puzzling thing is that it is locked to 440 Hz plus 2
+   octaves, but it can run the full length of keys 50 to 81 (so we can get
+   "Extra toms") and gradually rise in pitch.  How?  Unlocking voice 1 seems
+   to change nothing!
+
    \index{natural drum!bass drums}
-   \index{natural drum!xxxxxxx}
-   \index{natural drum!xxxxxxx}
-   \index{natural drum!xxxxxxx}
-   MORE DESCRIPTIONS
-   MORE DESCRIPTIONS
-   MORE DESCRIPTIONS
-   MORE DESCRIPTIONS
-   MORE DESCRIPTIONS
+   \textbf{Item 10} is "Bass Drum 2", a SUBsynth patch.
+   Like the SUBsynth part of the "Snare - Stick + Snares" item, it provides
+   a Freemode \textbf{Amplitude Env} and \textbf{Bandwidth Envelope}, but
+   only a small set of low harmonics, and a -3 \textbf{Octave} offset, one
+   octave lower than the snare.
+
+   \textbf{Item 11} is "Acoustic Bass Drum".  It merely adds some more
+   harmonics to the "Bass Drum 2" patch.
+
+   \index{natural drum!toms}
+   \textbf{Item 12} is the "Low Floor Tom", an ADDsynth patch.
+   Voice 1, like \textbf{Item 9}, is a pitched tone with a frequency
+   envelope.  Voice 2 is added to provide a noisy component.
+
+   \textbf{Item 13} through \textbf{16} are also noisy toms.
+   At some point, we'll try to use the XML files to determine how their
+   pitches are determined.  To difficult to compare the two GUIs without
+   taking screen shots.
+
+   Okay, so this drum kit is a little tom-heavy!
 
    Now, without defining more than one drum kit, we have only about 15
    "drums" available to us in \textsl{Yoshimi}.  So we filled in the missing
@@ -617,7 +704,36 @@
 \subsection{Guitar}
 \label{subsec:cookbook_instruments_guitar}
 
-   TODO.
+   \textsl{Yoshimi} ships with some mediocre acoustic and steel guitar
+   patches, but some amazing distortion guitars.  We decided to try our hand
+   at a 12-string guitar.
+
+\subsubsection{Guitar / 12-String}
+\label{subsubsec:cookbook_instruments_guitar_12_string}
+
+   A 12-string guitar has pairs of strings, with each member of a pair an
+   octave apart in frequency, for all strings but one.  We've provided two
+   versions of an attempt at a 12-string.
+
+   \index{guitar!12-string}
+   The first 12-string simulation is stored in
+   \index{files!12-string}
+   \texttt{yoshimi/banks/demo/Low\_Octave\_12-String\_Guitar\_Harms.xiz}.
+
+   This patch provides one voice only, but the \textbf{Voice Oscillator}
+   provides the fundamental and two harmonics.  In this oscillator,
+   \textbf{H.md} is set to \textbf{Pow}.
+   \textbf{Base F.} is set to \textbf{Pulse}.
+   Voice 1 also enables the \textbf{Filter Params} to get a more acoustic
+   sound.  Still sounds a bit harpsichordy.  Probably both strings need to
+   be more complex.
+
+   The second 12-string simulation is stored in
+   \index{files!12-string}
+   \texttt{yoshimi/banks/demo/Unison\_12-String\_Guitar\_Harms.xiz}.
+   This version is similar to the previous 12-string, but, in voice 1,
+   \textbf{Unison} is enabled, and vibrator and phase randomness are added.
+   This version sounds significantly richer.
 
 \subsection{Strings} (individual and ensemble)
 \label{subsec:cookbook_instruments_strings}
