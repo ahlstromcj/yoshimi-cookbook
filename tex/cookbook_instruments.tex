@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2015-07-12
-% \update      2015-07-17
+% \update      2015-07-18
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -26,8 +26,9 @@
    be, fall well short of being recognizable per their name; they should be
    doable with a complex synthesizer like \textsl{Yoshimi}.
   
-   It is true that there are a vast number of patches out there.  The author
-   has attempted a survey of them, and the task is all but impossible.
+   It is true that there are a vast number of \textsl{Yoshimi} and
+   \textbf{ZynAddSubFX} patches/parts/instruments out there.  The author
+   had attempted a survey of them, and the task was all but impossible.
    Still, many candidates have been identified.  Other candidates might be
    suitable with a little tweaking.
 
@@ -408,6 +409,12 @@
    \texttt{yoshimi/banks/demo/Sub\_Pseudo\_Steel\_Drums.xiz}.
    It's pretty nasty.
 
+   However, the best steel drum patch we've encountered so far is the
+   \texttt{banks/olivers-100/0029-Steel Drums.xiz} from the installed banks
+   of \textsl{ZynAddSubFx}, and that's the one we now copy to
+   our cookbook project's 
+   \texttt{yoshimi/banks/gm-basic/0115-Steel Drums.xiz} GM slot.
+
 \subsection{Drums}
 \label{subsec:cookbook_instruments_drums}
 
@@ -569,6 +576,106 @@
    \label{fig:cookbook_bank_general_drum_kit_layout}
 \end{figure}
 
+\subsection{Chromatic Percussion}
+\label{subsec:cookbook_instruments_chromperc}
+
+   One of the big blanks in the gm-basic sound set are the various
+   stand-alone percussion instruments:
+   woodblock, taiko drum, melodic tom, synth drum, and reverse cymbal.
+   These occupy GM slots 116 through 120.
+
+   One easy way to obtain these instruments is to find them in an existing
+   drum kit, and extract each into its own instrument file.  Here is how we
+   did it to obtain instrument 118, the Melodic Tom.
+
+   First, set up a presets directory to hold any presets one creates, and
+   make it the default presets directory.  For example, one can
+   set this project's \texttt{yoshimi/presets} directory as the default
+   location for preset files.
+
+      \begin{enumber}
+         \item Navigate to \textbf{Menu / Settings... / Preset Dirs}
+            (a tab in the settings dialog).
+         \item Click the \textbf{Add preset directory} button.
+         \item Navigate to the desired directory, select it, click
+            \textbf{OK}.
+         \item Select the new preset directory, then click the
+            \textbf{Make default} button.
+         \item Press the \textbf{Save and Close} button.
+         \item Restart \textsl{Yoshimi}.
+      \end{enumber}
+
+   Next, extract the Tom drum from the Natural Drum Kit for use as Melodic
+   Tom GM patch:
+
+      \begin{enumber}
+         \item Load the "Natural Drum Kit" instrument.
+         \item Click \textbf{Edit} to bring up the overall editor dialog.
+         \item Then click the \textbf{Kit Edit} button.
+         \item Move to item 9, "Tom", and click the
+            \textbf{Edit} button to access its ADDsynth settings (the Global
+            dialog).
+         \item Press the blue \textbf{C} button in the ADDsynth Global
+            dialog.
+         \item Next to the grayed-out \textbf{Copy to Preset}
+            button, give the setting (to be saved) a name:
+            "Nat Drum ADDsynth Tom Part".  See the figure below.
+         \item Press the now active \textbf{Copy to Preset} button.
+         \item Depending on what dialog one is in when pressing the
+            \textbf{C} button, the file will be save in the default preset
+            \index{files!.ADnoteParameters.xpz}
+            directory under a name like \texttt{.ADnoteParameters.xpz}.
+      \end{enumber}
+
+\begin{figure}[H]
+   \centering 
+   \includegraphics[scale=0.85]{demo/copy_to_clipboard.png}
+   \caption{Copy to Clipboard Preset}
+   \label{fig:cookbook_instruments_copy_to_clipboard}
+\end{figure}
+
+   \index{files!.ADnoteParameters.xpz}
+   One should then copy the \textbf{.ADnoteParameters.xpz} file to a file
+   with the name \textbf{Nat Drum ADDsynth Tom Part} (matching the name of
+   the preset it holds), and restart Yoshimi.
+   However, it is only accessible with the hidden file name in the
+   \textbf{Paste From Clipboard} dialog, as far as we can tell.
+
+   Finally, the preset can then be loaded into a new instrument as follows:
+
+      \begin{enumber}
+         \item Navigate to \textbf{Menu / Instrument / Clear Instrument}, and
+            click \textbf{Yes} at the prompt.
+         \item Navigate to the desired settings dialog.  In this case, it
+            will involve clicking \textbf{Edit}, then the ADDsynth
+            \textbf{Edit} button.
+         \item In the \textbf{ADDsynth Global} dialog,
+            press the blue \textbf{P} button in that dialog,
+            to open the \textbf{Paste From Clipboard} dialog.
+         \item Select the desired preset (that matches the current settings
+            dialog).  In this case, it will be
+            \index{files!.ADnoteParameters.xpz}
+            \textbf{.ADnoteParameters.xpz}.
+         \item Press the \textbf{Paste from Preset} button.
+         \item Open the virtual keyboard using the \textbf{virKbd} button,
+            and verify that the instrument sounds like the proper Tom kit
+            item.
+         \item Go back to the Main edit dialog and change the \textbf{Type}
+            to the best matching value; here, it would be
+            \textbf{Chromatic Percussion}.  Then fill in the
+            \textbf{Author and Copyright} and \textbf{Comments} fields.
+         \item In the main \textsl{Yoshimi} window, right-click on the part
+            name.  In the prompt for \textbf{Instrument name}, type the name
+            of the instrument/part; in this case, "Melodic Tom".
+         \item Navigate to
+            \textbf{Menu / Instrument / Save instrument...}.
+            Navigate to the desired directory, append the name (e.g.
+            "Melodic Tom.xiz"), and save it.
+      \end{enumber}
+
+   It is wise to restart \textsl{Yoshimi} and verify that the new instrument
+   can be loaded and played.
+
 \subsection{Effects}
 \label{subsec:cookbook_instruments_effects}
 
@@ -577,6 +684,7 @@
 \subsubsection{Effects / Dial Tones}
 \label{subsubsec:cookbook_instruments_effects_dialtones}
 
+   \index{effects!dial tone}
    We've created a nice dial-tone effect that we'll describe here.
    Dial tones consist of two notes, as shown by the
    \textbf{Low F} and \textbf{High F} columns in the following table.

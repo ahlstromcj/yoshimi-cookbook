@@ -1,1 +1,25 @@
-No presets yet!
+Yoshimi Cookbook
+Chris Ahlstrom
+2015-07-14 to 2015-07-18
+
+For some reason, Yoshimi saves presets into a file of the form
+.subsystem.xpz (such as .ADnoteParameters.xpz), without giving one
+a chance to specify the file-name.
+
+Better to rename or copy the file right away.  However,
+that doesn't seem to make the file visible in the preset directory
+management dialogs of Yoshimi.  This is an issue to work out.
+
+Here are the files present in this directory so far:
+
+   .ADnoteParameters.xpz
+
+      Holds the latest presets saved from the ADDsynth Edit dialog.
+      Copy this file to a better-named file for safe-keeping after
+      using it.
+
+   Nat Drum ADDsynth Tom Part.xpz
+
+      This file is an attempt to extract the Tom drum kit item from the
+      Natural Drum Kit patch provided in the yoshimi/banks/demos directory.
+

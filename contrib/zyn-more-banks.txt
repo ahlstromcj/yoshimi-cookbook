@@ -1,0 +1,47 @@
+Good patches from Oliver's 100, shipped with ZynAddSUbFX:
+
+   0002-Bamboo Flute.xiz            4/5 GM?
+   0006-FM Saxophone.xiz            4/5 in low notes
+   0013-Soft Guitar.xiz             3/5 GM Acoustic Guitar?
+y  0016-Banjoey.siz                 4/5 GM
+y  0018-Bass Guitar - Slap.xiz      4/5 GM
+y  0019-FM Sitar.xiz                2/5 GM
+y  0026-Harpsichord.xiz             3/5 GM
+   0028-Mallets.xiz                 3/5 (overdriven)
+   0029-Steel Drums.xiz             5/5 3 engines!
+   0030-Balinese Chimes.xiz         4/5
+   0032-Drum Kit.xiz                4/5 very nice, but not GM at all
+y  0074-80s Poly 5ths.xiz           4/5 GM
+   0076-Vastness 5ths.xiz           4/5 GM?
+   0107-Hammering Metal.xiz         4/5
+   0109-Crickets.xiz                4/5
+      
+   Others noted:
+
+      Basic Thick Bass
+      Celestial 5ths (arpeggiated)
+      Concertina
+      Gentle Triangle Lead
+      Muffled Chimes
+      Robot Overlords (arpeggiated)
+      Toy Piano
+      Unpleasantly Drunk
+
+Cormi Noise:
+
+   creepy
+
+the mysterious banks 4
+
+   metal_bell
+
+Drums to extract:
+
+   Drums/0001-Drums Kit1:           cymbal (for reverse cymbal)
+   Drums/0002-subliminal-kit:       handclap, cowbell
+   Drums/0003-zyndrums-plus07law:   various cool ones
+   Drums/0005-Natural Snare-var...: one sound from four items
+   Drums/0005-Tap:                  gunshot/firecracker sounds
+   Drums/0011-Drums 1 LHR:          woodblock, guiro, bongo, conga, cowbell,
+                                    claves, cabase, maracas
+   Drums/0152-Drum Kit2:            sticks, wood block, shaker, brush

@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2015-07-12
-% \update      2015-07-16
+% \update      2015-07-18
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -79,6 +79,28 @@
    The configuration, banks, presets, and instrument files can be used
    to supplement or replaces the user's own configuration and data files.
 
+\subsection{XML File Compression}
+\label{subsec:introduction_xml_files}
+
+   One thing we recommend for following this cookbook is to set the
+   \textsl{Yoshimi} compression level to \textbf{0}.  This makes it a lot
+   easier to text-edit the file to read its contents.  To make this setting:
+
+   \index{XML compression}
+   \begin{enumber}
+      \item Navigate to \textbf{Menu / Yoshimi / Settings.../ Main settings}.
+      \item Click on the left arrow of \textbf{XML compression level} until
+         the value of 0 appears.
+      \item Click on the \textbf{Save and Close} button.
+      \item Restart \textsl{Yoshimi}, then navigate again to this dialog
+         to verify that the setting has been saved.
+   \end{enumber}
+
+   Setting this option makes the XML files a bit larger, perhaps larger by a
+   factor of more than 10, making a 10K file into a 180K file.
+   But these days, that should not be a problem.  Maybe if one is running
+   \textsl{Yoshimi} on an old \textsl{Raspberry Pi} device.
+
 \subsection{What Game Shall We Play Today?}
 \label{subsec:introduction_what_game}
 
@@ -103,7 +125,7 @@
          Some examples, based on our desires: sitar, koto, bagpipes, steel
          drums, telephone tones, middle-eastern pipes, Japanese instruments,
          that steel-whip percussion sound heard in many songs....
-      \item \textbf{More! ...}.
+      \item \textbf{More!}.
    \end{itemize}
 
    This document explains how to do some of the above tasks.
