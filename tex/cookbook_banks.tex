@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2015-07-12
-% \update      2015-07-16
+% \update      2015-07-19
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -93,6 +93,16 @@
    for most music.  Alternative (and better) banks could be created, as
    well.
 
+   One thing to note about the instruments.  When copied from the original
+   directory to the \texttt{gm-basic} directory, each instrument copied
+   retains its name, of course.  To make it less confusing to use in
+   \textsl{Yoshimi}, then, one should rename each instrument to its GM name.
+   To do that, right click on the name, change it, and then save the
+   instrument to the same file from which it was loaded.  Be careful!
+   It is easy to make a mistake!  
+
+   And we have not yet renamed any of them!
+
 \subsection{Root Paths}
 \label{subsec:cookbook_banks_root_paths}
 
@@ -137,6 +147,9 @@
    
    \index{directories!GM basic bank}
    Click on the "gm-basic" bank.  The larger dialog below will be shown.
+   \index{current bank}
+   Note that this action also makes "gm-basic" the current bank.
+   This setting will be preserved across a restart of \textsl{Yoshimi}.
 
 \begin{figure}[H]
    \centering 
@@ -155,6 +168,23 @@
    stored in a bank of drum kits, but here we have a GM-compliant drum kit,
    compliant in the sense that most of the keys are mapped correctly, and
    all keys will play \textsl{something}.
+
+\subsection{Using a Basic GM Bank}
+\label{subsec:cookbook_banks_using_basic_bank}
+
+   \index{current root}
+   Once the current root path has been set (e.g. to
+   \texttt{~/yoshimi-cookbook/yoshimi/banks}) and
+   \index{current bank}
+   the current bank has been set (e.g. to \texttt{gm-basic}),
+   then a MIDI file can select instruments 1 to 128 from the
+   current bank using a Program Change event followed by the desired
+   instrument's number re 0.
+
+   The bank and root paths can be saved in the \textsl{Yoshimi} state.
+   But the MIDI file can also start with bank-selection events, and change
+   the current bank using Bank Select LSB (CC32) and Bank Select MSB (CC0)
+   events.
 
 %-------------------------------------------------------------------------------
 % vim: ts=3 sw=3 et ft=tex
