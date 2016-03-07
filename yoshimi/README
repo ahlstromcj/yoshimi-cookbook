@@ -1,0 +1,168 @@
+Yoshimi Cookbook Banks and Presets
+Chris Ahlstrom
+2016-03-06 to 2016-03-06
+
+The 'yoshimi' directory contains files that I have created for my own usage or
+for usage as preliminary demonstration material.  You are free to use them as
+you wish.
+
+    ./banks:
+        demo/
+        gm-basic/
+
+These files are instruments I have tried to create:
+
+    ./banks/demo:
+        Add_Pseudo_Steel_Drums.xiz
+        Bells-440-ring-modulation.xiz
+        Bells-ringmod-addsynth.xiz
+        Bells-simple-addsynth.xiz
+        DTMF_Kit.xiz
+        Low_Octave_12-String_Guitar_Harms.xiz
+        Melodic_Tom_from_Nat_drum_kit.xiz
+        Natural_Drum_Kit_Basic.xiz
+        Organ_Plus_Birds_ooh.xiz
+        Sub_Pseudo_Steel_Drums.xiz
+        Unison_12-String_Guitar_Harms.xiz
+        WG-Full_Strings-Trainish.xiz
+
+These files are instruments that I have tried to arrange into a reasonable
+approximation of a GM instrument layout.  The instruments come from various
+sources:  Yoshimi, ZynAddSubFX, my own creations, and other sources found
+around the internet.  They have been renamed to fit within the GM framework.
+
+    ./banks/gm-basic:
+        0001-Acoustic Grand Piano.xiz
+        0002-Bright Acoustic Piano.xiz
+        0003-Electric Grand Piano.xiz
+        0004-Honky-tonk Piano.xiz
+        0005-Electric Piano 1.xiz
+        0006-Electric Piano 2.xiz
+        0007-Harpsichord.xiz
+        0008-Clavinet.xiz
+        0009-Celesta.xiz
+        0010-Glockenspiel.xiz
+        0011-Music Box.xiz
+        0012-Vibraphone.xiz
+        0013-Marimba.xiz
+        0014-Xylophone.xiz
+        0015-Tubular Bells.xiz
+        0016-Dulcimer.xiz
+        0017-Drawbar Organ.xiz
+        0018-Percussive Organ.xiz
+        0019-Rock Organ.xiz
+        0020-Church Organ.xiz
+        0021-Reed Organ.xiz
+        0022-Accordion.xiz
+        0023-Harmonica.xiz
+        0024-Tango Accordion.xiz
+        0025-Acoustic Guitar nylon.xiz
+        0026-Acoustic Guitar steel.xiz
+        0027-Electric Guitar jazz.xiz
+        0028-Electric Guitar clean.xiz
+        0029-Electric Guitar muted.xiz
+        0030-Overdriven Guitar.xiz
+        0031-Distortion Guitar.xiz
+        0032-Guitar harmonics.xiz
+        0033-Acoustic Bass.xiz
+        0034-Electric Bass finger.xiz
+        0035-Electric Bass pick.xiz
+        0036-Fretless Bass.xiz
+        0037-Slap Bass 1.xiz
+        0038-Slap Bass 2.xiz
+        0039-Synth Bass 1.xiz
+        0040-Synth Bass 2.xiz
+        0041-Violin.xiz
+        0042-Viola.xiz
+        0043-Cello.xiz
+        0044-Contrabass.xiz
+        0045-Tremolo Strings.xiz
+        0046-Pizzicato Strings.xiz
+        0047-Orchestral Harp.xiz
+        0048-Timpani.xiz
+        0049-String Ensemble 1.xiz
+        0050-String Ensemble 2.xiz
+        0051-Synth Strings 1.xiz
+        0052-Synth Strings 2.xiz
+        0053-Choir Aahs.xiz
+        0054-Voice Oohs.xiz
+        0055-Synth Voice.xiz
+        0056-Orchestra Hit.xiz
+        0057-Trumpet.xiz
+        0058-Trombone.xiz
+        0059-Tuba.xiz
+        0060-Muted Trumpet.xiz
+        0061-French Horn.xiz
+        0062-Brass Section.xiz
+        0063-Synth Brass 1.xiz
+        0064-Synth Brass 2.xiz
+        0065-Soprano Sax.xiz
+        0066-Alto Sax.xiz
+        0067-Tenor Sax.xiz
+        0068-Baritone Sax.xiz
+        0069-Oboe.xiz
+        0070-English Horn.xiz
+        0071-Bassoon.xiz
+        0072-Clarinet.xiz
+        0073-Piccolo.xiz
+        0074-Flute.xiz
+        0075-Recorder.xiz
+        0076-Pan Flute.xiz
+        0077-Blown Bottle.xiz
+        0078-Shakuhachi.xiz
+        0079-Whistle.xiz
+        0080-Ocarina.xiz
+        0081-Lead 1 square.xiz
+        0082-Lead 2 sawtooth.xiz
+        0083-Lead 3 calliope.xiz
+        0084-Lead 4 chiff.xiz
+        0085-Lead 5 charang.xiz
+        0086-Lead 6 voice.xiz
+        0087-Lead 7 fifths.xiz
+        0088-Lead 8 bass lead.xiz
+        0089-Pad 1 new age.xiz
+        0090-Pad 2 warm.xiz
+        0091-Pad 3 polysynth.xiz
+        0092-Pad 4 choir.xiz
+        0093-Pad 5 bowed.xiz
+        0094-Pad 6 metallic.xiz
+        0095-Pad 7 halo.xiz
+        0096-Pad 8 sweep.xiz
+        0097-FX 1 rain.xiz
+        0098-FX 2 soundtrack.xiz
+        0099-FX 3 crystal.xiz
+        0100-FX 4 atmosphere.xiz
+        0101-FX 5 brightness.xiz
+        0102-FX 6 goblins.xiz
+        0103-FX 7 echoes.xiz
+        0104-FX 8 sci-fi.xiz
+        0105-Sitar.xiz
+        0106-Banjo.xiz
+        0107-Shamisen.xiz
+        0108-Koto.xiz
+        0109-Kalimba.xiz
+        0110-Bagpipe.xiz
+        0111-Fiddle.xiz
+        0112-Shanai.xiz
+        0113-Tinkle Bell.xiz
+        0114-Agogo.xiz
+        0115-Steel Drums.xiz
+        0116-Woodblock.xiz
+        0117-Taiko Drum.xiz
+        0118-Melodic Tom.xiz
+        0119-Synth Drum.xiz
+        0120-Reverse Cymbal.xiz
+        0121-Guitar Fret Noise.xiz
+        0122-Breath Noise.xiz
+        0123-Seashore.xiz
+        0124-Bird Tweet.xiz
+        0125-Telephone Ring.xiz
+        0126-Helicopter.xiz
+        0127-Applause.xiz
+        0128-Gunshot.xiz
+        0129-Drum Kit.xiz
+
+    ./presets:
+        Nat Drum ADDsynth Tom Part.xpz
+
+# vim: sw=4 ts=4 wm=4 et ft=sh

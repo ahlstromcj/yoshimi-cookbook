@@ -1,0 +1,106 @@
+Simple outlines for some tutorial work before putting it into the cookbook
+==========================================================================
+
+Initial Installation:
+
+   Install Yoshimi from a package manager or from source code.
+   Install ZynAddSubFx from a package manager or from source code.
+   Clone the yoshimi-cookbook project from GitHub.
+   Clone the sequencer64 project from GitHub.
+
+Start from scratch:
+
+   Remove any existing Yoshimi configuration.
+
+   $ cd ~/.config
+   $ mv yoshimi/ yoshimi-orig
+
+Restart Yoshimi:
+
+   $ yoshimi --version
+   Yoshimi is starting
+   ConfigFile /home/ahlstrom/.config/yoshimi/yoshimi.config not found,
+         will use default settings
+   Missing bank file
+   Scanning for banks
+   Missing history file
+   Yoshimi 1.3.9
+
+   (This results in the creation of ~/.config/yoshimi and
+   an empty ~/.config/yoshimi/presets directory.)
+
+Load Example XMZ File (ALSA):
+
+   Note that Yoshimi cannot find the parameters file if "/home/ahlstrom" is
+   replaced with "~".
+
+   $ yoshimi -a -A --load=/home/ahlstrom/Home/ca/mls/git/yoshimi-cookbook/
+			yoshimi/examples/Out_There.xmz
+	Yoshimi is starting
+	ConfigFile /home/ahlstrom/.config/yoshimi/yoshimi.config not found,
+         will use default settings
+	Missing bank file
+	Scanning for banks
+	Missing history file
+	March little endian = 1
+	Format = Signed Little Endian 32 Bit 2 Channel
+	Using alsa_audio for audio and alsa_midi for midi
+	pLoaded Out_There parameters
+	Yoshimi 1.3.9 rc3
+	Clientname: yoshimi
+	Config: Audio: alsa -> 'default'
+	Midi: alsa -> 'default'
+	Oscilsize: 512
+	Samplerate: 48000
+	Period size: 256
+
+	Yay! We're up and running :-)
+	yoshimi> exit
+   System config has been changed.  Still exit N/y? y
+
+	(This results in additional files in ~/.config/yoshimi:
+      yoshimi.history
+      yoshimi.banks
+      yoshimi.windows
+   )
+
+   The history file contains a reference to the full path of the Out_There.xmz
+   file.
+
+   The banks file is a gzip-compressed XML file the references the default
+   bank-root (bank-root 0): /usr/local/share/yoshimi/banks.  It also defines
+   prefix number for all of the banks (bank directories) that ship with
+   Yoshimi.  It also references the ZynAddSubFX bank location:
+   /usr/share/zynaddsubfx/bank (bank-root 1).  It defines bank number for all
+   the banks that ship with ZynAddSubFX.
+
+   The windows file contains the locations of about 20 windows such as
+   "master", "panel", "instruments", "SUBnote", "ADDnote", etc.
+
+Playing the Out_There tune:
+
+   Run Yoshimi as above.
+   Run sequencer64 (or seq24 with busses set manually to 5, or whatever matches
+   your system), and make sure to NOT use --manual-alsa-ports:
+
+   $ sequencer64 --bus 5 Out_There.mid
+
+   Delete the SMF 0 track that Sequencer64 creates as it converts this file to
+   Sequencer64's SMF 1 format.
+
+   Arm (unmute) all of the tracks in the main window view of Sequencer64.
+
+   Play!  This setup can loop endlessly, and the differing lengths of the parts
+   make it vary as it plays.
+
+   When done, on't save either the Yoshimi parameters or the converted tune.
+
+
+Install cookbook files:
+
+Setup:
+
+   Keep cookbook stuff separate from regular stuff.  Put in
+
+      ~/.config/yoshimi-cookbook
+

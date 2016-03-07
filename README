@@ -1,6 +1,6 @@
 Yoshimi Cookbook
 Chris Ahlstrom
-2015-07-14 to 2015-07-16
+2015-07-14 to 2016-03-06
 
 This project provides two things:
 
@@ -25,3 +25,4 @@ build succeeds.
 Lastly, although this cookbook is well underway, it needs a lot of work and
 a lot of help!
 
+# vim: sw=4 ts=4 wm=4 et ft=sh

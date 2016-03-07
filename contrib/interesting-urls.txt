@@ -1,0 +1,5 @@
+
+https://djbarney.wordpress.com/2013/10/27/generating-synthesised-drums-and-percussion-in-linux-using-yoshimi/
+
+   Seems like a nice tutorial on synthesizing drums.
+
