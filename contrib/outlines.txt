@@ -95,6 +95,77 @@ Playing the Out_There tune:
 
    When done, on't save either the Yoshimi parameters or the converted tune.
 
+Setting up presets and playing with them:
+
+   First, make sure to have your $HOME/.config/yoshimi/presets directory
+   in your presets: Main window / Paths / Preset Dirs...
+   Add it if necessary.
+
+   Second, make sure that there are some root directories available.
+   Main window / Paths / Bank Root Dirs...
+
+      /usr/share/yoshimi/banks (or in /usr/local if built from source)
+      /usr/share/zynaddsubfx/banks
+
+   Then go to Main window / Patch Sets / Show Patch Banks...
+   Pick item "60. Pads".  Then pick "8. Resonance Pad1".
+
+   Now let's save some of it's presets.  Click the main window Edit button.
+   Oddly, this pad uses only the ADDsynth engine.
+   Press the ADDsynth "Edit" button.
+   Note the C and P buttons for:
+
+      Amplitude Env
+      Amplitude LFO
+      Filter Params
+      Filter Env
+      Filter LFO
+      Frequency Env
+      Frequency LFO
+      The whole ADDsynth Window
+
+   Let's save them all!  Click on each C button, then fill in the "Copy to
+   Preset" text field with the name "demo", and press the "Copy to Preset"
+   button.
+
+   Then click on "Show Voice Parameters", then click on the C
+   button to save the one enabled sub-panel, "Frequency LFO".
+   Note that the "demo" is already saved in this preset of
+   type "Plfofrequency".  So, if we want to save this, we'd use a name other
+   than "demo".  Click "Cancel".
+
+   Click on C for the whole Addsynth voice window.  Go ahead and
+   "Copy to Preset" named "demo".
+
+   Now look in "~/.config/yoshimi/presets", and see all the save files:
+
+	$ ls ~/.config/yoshimi/presets
+
+	demo.ADnoteParametersn.xpz (whole ADDsynth preset?)
+	demo.ADnoteParameters.xpz (whole ADDsynth Voice preset?)
+	demo.Penvamplitude.xpz
+	demo.Penvfilter.xpz
+	demo.Penvfrequency.xpz
+	demo.Pfilter.xpz
+	demo.Plfoamplitude.xpz
+	demo.Plfofilter.xpz
+	demo.Plfofrequency.xpz
+
+	Two of them are confounded with the same type, but different file-names.
+	How?
+
+   Now all are available for loading.  Take the "Simple Sound". 
+   (Currently cannot be done via Instruments / Clear! Bug !!??)
+   and listen to it via the virtual keyboard.
+   Then click the "Edit" button, then the ADDsynth "Edit" button.
+   Now load all of the presets above by clicking on each P button and
+   then selecting the "demo" entry, and click the "Paste from Preset" button.
+   After all this is done, you'll have pretty much recovered the 
+   "Resonance Pad1" sound.
+
+   In summary, the presets are essentially keyed to the sub-panels.
+   In naming them, you need to use a name that represents the sound that the
+   preset contributes, via the settings in its sub-panels.
 
 Install cookbook files:
 
