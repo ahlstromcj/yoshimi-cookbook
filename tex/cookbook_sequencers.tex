@@ -1,0 +1,153 @@
+%-------------------------------------------------------------------------------
+% cookbook_sequencers
+%-------------------------------------------------------------------------------
+%
+% \file        cookbook_sequencers.tex
+% \library     Documents
+% \author      Chris Ahlstrom
+% \date        2016-03-12
+% \update      2016-03-12
+% \version     $Revision$
+% \license     $XPC_GPL_LICENSE$
+%
+%     Provides the discusson of using sequencers with Yoshimi.
+%
+%-------------------------------------------------------------------------------
+
+\section{Sequencers}
+\label{sec:sequencers}
+
+   This section discusses some basic usage of a few seqeuencers
+   with \textsl{Yoshimi}.
+   Some sequencers support ALSA MIDI, some support JACK MIDI, and some
+   support both.  This section provides some use cases and pointers that cover
+   a range of sequencers.
+
+   Note that this section depends on having one's Banks/Roots directories set
+   up properly.  It might be useful to make sure that there is a default
+   "presets" directory present.
+
+\subsection{Sequencers / Sequencer64}
+\label{subsec:sequencers_seq64}
+
+   \textsl{Sequencer64} is our fork/reboot of the \textsl{Seq24} project.
+   It currently fixes some bugs in \textsl{Seq24}, adds a few useful features,
+   and refactors the code.  Much of the advice in this section will apply to
+   \textsl{Seq24}, with some minor differences, such as the locations and names
+   of the configuration files.
+
+   Note that the two \textsl{Sequencer64} configuration files are:
+
+   \begin{verbatim}
+      ~/.config/sequencer64/sequencer64.rc
+      ~/.config/sequencer64/sequencer64.usr
+   \end{verbatim}
+
+   The simplest thing to do for this cookbook is
+   
+   \begin{itemize}
+      \item Make sure these files do not exist; save the old versions somewhere
+      and then delete the two file.
+      \item Then start \textsl{Sequencer64}.
+      \item Then immediately exit it.
+   \end{itemize}
+      
+   New versions of those files will appear, and we can start with a clean
+   slate.  We will edit those files, as that is a bit more foolproof than using
+   command-line options.
+
+   The "rc" is the most important file.  There are configuration items in the
+   "usr" ("user") file that can make \textsl{Sequencer} prettier, and a couple
+   options that can affect playback.  We'll point out the necessary values when
+   needed.
+
+\subsubsection{Sequencers / Sequencer64 / ALSA}
+\label{subsubsec:sequencers_seq64_alsa}
+
+   Skip this section if all that matters for one's setup is JACK support.
+   Otherwise, make sure JACK is not running.
+   Next, remove the "rc" and "usr" files from the configuration directory, as
+   noted in the previous section.
+   Then open up a console window (terminal) and run \textsl{Yoshimi} in ALSA
+   audio and ALSA MIDI modes:
+
+   \begin{verbatim}
+      $ yoshimi -a -A
+   \end{verbatim}
+
+   Now, run \textsl{Sequencer64}, and check the new
+   versions of those files, as noted in the previous section.
+   On our computer, with Timidity installed, we see the following ALSA entries
+   in the \texttt{sequencer64.rc} file:
+
+   \begin{verbatim}
+		# Output buss name: [0] 14:0 Midi Through Port-0
+		0 0  # buss number, clock status
+		# Output buss name: [1] 128:0 TiMidity port 0
+		1 0  # buss number, clock status
+		# Output buss name: [2] 128:1 TiMidity port 1
+		2 0  # buss number, clock status
+		# Output buss name: [3] 128:2 TiMidity port 2
+		3 0  # buss number, clock status
+		# Output buss name: [4] 128:3 TiMidity port 3
+		4 0  # buss number, clock status
+		# Output buss name: [5] 129:0 input
+		5 0  # buss number, clock status
+   \end{verbatim}
+
+   The last entry in that list is "129:0 input", which corresponds to
+   \textsl{Yoshimi}.  Note that the \textsl{Sequencer64} application will
+   find the actual name of the device (e.g. "129:0 Yoshimi Port 0").
+   
+   While we're in the "rc" file, let's make sure of the following settings:
+
+   \begin{verbatim}
+      1     # show sequence numbers (1 = true / 0 = false); ignored in legacy
+		[manual-alsa-ports]
+		0     # flag for manual ALSA ports
+   \end{verbatim}
+
+   The first setting enables showing the sequence number in empty slots in the
+   main window.  (This setting really belongs in the "user" file!)
+   The second setting disables manual setup of the ALSA MIDI ports.
+   \textsl{Sequencer64} will determine the ports that exist on the system.
+
+   In the "user" file, we want to set the buss number to 5, to match our
+   current ALSA setup.  It may differ on your system.  If it is 0, you don't
+   have to do the next step.
+
+   Open the "user" file and make sure the following setting matches the
+   location of \textsl{Yoshimi}'s MIDI input port on your system (it is 5 on
+   ours):
+
+   \begin{verbatim}
+   5       # midi_buss_override
+   \end{verbatim}
+
+   Now open a MIDI file, verify that the correct buss value is shown, and that
+   the file plays and is audible.  If this is the case, one is done.  If not,
+   please read the \textsl{Sequencer64} user's manual
+   (\cite{sequencer64doc}).
+
+   Finally, we are ready to add a loop.  In \textsl{Sequencer64}, right click
+   on a pattern slot and select \textbf{New}.  On the bottom of the new pattern
+   window, select the left-most icon button, which shows a blue box pointing to
+   a MIDI port (tooltip: "Sequence dumps data to MIDI bus.").
+   Press the Space bar while in the main window or the pattern window
+   to start the loop, and add notes.
+
+   \begin{quotation}
+      \textbf{Peculiarities of Sequencer64}.
+      First, if the pattern is empty the
+      progress bar will not move.  Second, to add a note, one must press
+      the right button (the pointer changes to a pencil) and, while holding
+      it, press the left mouse button.  Or click in the pattern editor, press
+      "p" to select the pencil mode, then click/drag to add notes.  Press "x"
+      to "eXit" from that mode.  Also note that notes are drawn only with the
+      length selected by the "notes" button near the top of the pattern window.
+      Again, see the Sequencer64 user manual for the gory details.
+   \end{quotation}
+
+%-------------------------------------------------------------------------------
+% vim: ts=3 sw=3 et ft=tex
+%-------------------------------------------------------------------------------
