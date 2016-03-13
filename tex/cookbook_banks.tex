@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2015-07-12
-% \update      2016-02-22
+% \update      2016-03-13
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -17,6 +17,7 @@
 \section{Banks and General MIDI}
 \label{sec:cookbook_banks}
 
+   \index{banks}
    Banks are discussed quite heavily in the user manual \cite{yoshimidoc}.
    Banks have evolved quite a bit in \textsl{Yoshimi}, and are
    a powerful way to manage instruments, and more amenable to automation
@@ -26,11 +27,12 @@
    compliant with the General MIDI specification.  In order to do so, we
    will cherry pick instruments from the package that is provided when
    \textsl{Yoshimi} is installed, renaming them as needed to fit into the
-   appropriate General MIDI slot.
+   appropriate General MIDI slot, and add our own instruments and some others
+   we have found.
 
-   One problem is the selection of the \textsl{best} instrument for a given
-   General MIDI program number.  There are simply too many to be able to
-   evaluate them all.
+   One problem with \textsl{Yoshimi} instruments is the selection of the
+   \textsl{best} instrument for a given General MIDI program number.  There are
+   simply too many to be able to evaluate them all.
 
    For this recipe, the \texttt{banks} and \texttt{presets} will
    be stored in the following directories of this project:
@@ -44,6 +46,9 @@
       yoshimi/banks/gm-basic
       yoshimi/presets
    \end{verbatim}
+
+   The user should set up these directories using the \textsl{Yoshimi}
+   directory menu entries.
 
 \subsection{Creating a Basic GM Bank}
 \label{subsec:cookbook_banks_basic_gm}
@@ -80,7 +85,6 @@
    is a \textsl{LibreOffice} spreadsheet
    that represents some research in finding GM-compatible instruments.
    It's pretty bad; maybe 50\% useful.
-
    We converted it to \texttt{contrib/gmcopy} to copy the files
    into the project directory \texttt{yoshimi/banks/gm/basic}.
    We show the banks in table~\ref{table:gm_basic_files}
@@ -101,18 +105,17 @@
    To do that, right click on the name, change it, and then save the
    instrument to the same file from which it was loaded.  Be careful!
    It is easy to make a mistake!  
-
    And we have not yet renamed any of them!
 
 \subsection{Root Paths}
 \label{subsec:cookbook_banks_root_paths}
 
+   \index{root}
+   \index{root path}
    The first thing to do is to add the yoshimi-cookbook \texttt{banks}
    directory to your setup.
-
    Run \textsl{Yoshimi}, and navigate the following user-interface path:
    \textsl{Menu / Instrument / Show Root Paths ...}
-
    Then click \textbf{Add root directory...}.  Navigate to where the
    yoshimi-cookbook project is stored and add the \texttt{yoshimi/banks}
    directory.  The result should be something like the following:
@@ -126,17 +129,20 @@
 
    Click on the new directory.
    \index{GM!bank}
+   \index{bank!GM}
    It has ID = 3 in that diagram.  We will refer to this value as
    the "banks path".
    Now click the \textbf{Make current} button.
    Verify that it now has the asterisk. 
    Click the \textbf{Save and Close} button.
 
+   \index{banks!gm-basic}
    Now let's open the "gm-basic" bank.
    Run \textsl{Yoshimi}, and navigate the following user-interface path:
    \textsl{Menu / Instrument / Show Banks ...}
 
    In the matrix of banks, you should see "gm-basic" somewhere.
+   \index{banks!demo}
    (We also have a "demo" bank in place.)
 
 \begin{figure}[H]
@@ -168,14 +174,14 @@
    Also note the drum kit, with an ID of 129.  Normally, drum kits might be
    stored in a bank of drum kits, but here we have a GM-compliant drum kit,
    compliant in the sense that most of the keys are mapped correctly, and
-   all keys will play \textsl{something}.
+   all of the keys will play \textsl{something}.
 
 \subsection{Using a Basic GM Bank}
 \label{subsec:cookbook_banks_using_basic_bank}
 
    \index{current root}
    Once the current root path has been set (e.g. to
-   \texttt{~/yoshimi-cookbook/yoshimi/banks}) and
+   \texttt{.../yoshimi-cookbook/yoshimi/banks}) and
    \index{current bank}
    the current bank has been set (e.g. to \texttt{gm-basic}),
    then a MIDI file can select instruments 1 to 128 from the
