@@ -1,0 +1,45 @@
+Construction of "Before You Accuse Me" for ZynAddSubFx/Yoshimi
+Chris Ahlstrom
+2012-01-20 to 2016-04-03
+
+This file describes the importing of one of my old Cakewalk transcriptions, a
+rendering of Eric Clapton and Robert Cray from a transcription that someone
+gave to me to try out.
+
+
+Yoshimi parts from the gm-basic bank:
+
+   1. Ch 10.  0129-Drum Kit.xiz
+   2. Ch  6.  0011-Music Box.xiz
+   3. Ch  7.  0049-String Ensemble 1.xiz
+   4. Ch  9.  0034-Electric Bass finger.xiz
+   5. Ch  8.  0007-Harpsichord.xiz
+   6. Ch  3.  0093-Pad 5 bowed.xiz
+   7. Ch  2.  0094-Pad 6 metallic.xiz
+   8. Ch  5.  0063-Brass Section.xiz
+   9. Ch  4.  0115-Steel Drums.xiz (muted)
+
+The bank must be installed in ~/.config/yoshimi-cookbook/banks.
+
+Sequencer64 settings:
+
+   [1] seq24 1 Channel 10
+
+To set up and play the tune (using ALSA):
+
+   1. Make sure that the seq24 or sequencer64 config ("rc") files
+      specify 0 for manual-alsa-ports, and do not set up any MIDI clocks.
+
+   2. yoshimi -a -A -l wpb_yoshimi_params.xmz
+
+   3. sequencer64 wpb_yoshimi.midi &
+
+   4. File / Options / MIDI Clock:  Verify which MIDI buss Yoshimi is
+      on.  In our case, it is on buss 5 (buss 0 is Midi Through, and 1
+      through 4 are ports created by TiMidity).  There are probably better
+      ways to do this, but right click on each pattern to select buss 5 and
+      the channel shown after the dash in the lower left corner of each
+      pattern.  Probably best to save this to a new file, just in case.
+
+   5. Open the Song Editor of sequencer64.  Click the red play arrow.
+

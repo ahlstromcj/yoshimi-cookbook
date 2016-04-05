@@ -1,0 +1,115 @@
+Reconstruction of "Cloudburst Flight" for ZynAddSubFx/Yoshimi
+Chris Ahlstrom
+2016-04-03 to 2016-04-03
+
+cbflite.mid is a composition for the old Yamaha PSS-790 consumer keyboard.
+First let's verify the basics by playing the tune through its original
+destination, using Sequencer64 with manual ALSA ports.
+
+Let's see what buss it is on with our current setup:
+
+   $ aplaymidi -l
+	 Port    Client name                      Port name
+	 14:0    Midi Through                     Midi Through Port-0
+	 24:0    nanoKEY2                         nanoKEY2 MIDI 1
+	 28:0    Q25                              Q25 MIDI 1
+	 32:0    E-MU XMidi1X1 Tab                E-MU XMidi1X1 Tab MIDI 1
+	128:0    TiMidity                         TiMidity port 0
+	128:1    TiMidity                         TiMidity port 1
+	128:2    TiMidity                         TiMidity port 2
+	128:3    TiMidity                         TiMidity port 3
+
+The device we want is the E-MU XMidi cable, on port 32:0 (buss 3).
+As a sanity check, play cbflite.mid through this port and verify
+that it plays through the PSS-790:
+
+   $ aplaymidi -p 32:0 cbflite.mid
+
+It has some junk at the beginning that we will edit out later, but the main
+song is good.  It will sound much like the cbflite_pss-790.mp3 file included
+with this tutorial.
+
+Next, prepare sequencer64.  In ~/.config/sequencer64:
+Make sure of the following settings in the new
+version of sequencer64.rc:
+
+   0   # flag for manual ALSA ports
+   1   # flag for reveal ALSA ports
+
+In the 0.9.10.1 versions (and later) of sequencer64, these settings allow
+the ALSA ports that exist on the system to be seen, regardless of what port
+names are specified in the sequencer64.usr file.  Or one can use the -r or
+--reveal-alsa-ports options.  Run either of the following commands:
+
+   $ sequencer64 -r -A -b 3 cbflite.mid
+   $ sequencer64 --reveal-alsa-ports --alsa --bus 3 cbflite.mid
+
+The basic MIDI file as loaded occupies 2 sets.  Lets enable them all in the
+main window by Shift-Left-Click on one slot, then a normal click on that slot.
+We'll be playing this one in live mode, though perhaps not appropriate for the
+patterns in this tune, which come in at different points.
+Verify that it plays through the PSS-790 roughly the way it should.
+It will keep replaying the shorter patterns, causing some annoying overlap.
+
+Now let's create an initial song layout in the song editor.  Ctrl-E to open the
+song editor.  One can then right-left-click on the beginning of each track to
+add each pattern.  Easier is to left-click in the piano roll to get focus, the
+press the "p" key to get the pencil icon.  Then click in the beginning of each
+pattern (there are 53 of them) to insert one copy of each pattern.  When done,
+click "x" to "exit" the pencil icon.  Then Save As "cbflite-layout-0.midi".
+
+Tempo Interlude:  Is the tempo of the tune really 72?  Opening the file(s) in
+Rosegarden and selecting "Composition / Add Tempo Change" verifies that this is
+indeed the tempo.  Also, the temporal layout of the tune is shown more readily,
+especially if we zoom out a lot.  Do not save when exiting Rosegarden!
+
+Note that one can open up two song editors in Sequencer64 to see two different
+areas of the performance.  WHAT ABOUT ZOOM?  SHIFT or CTRL SCROLL just move
+up/down or left/right.  ALSO, merely opening the song editor seems to set the
+modify flag!?
+
+
+
+
+
+
+
+
+YOSHIMI:
+
+Yoshimi parts from the gm-basic bank:
+
+   1. Ch 10.  0129-Drum Kit.xiz
+   2. Ch  6.  0011-Music Box.xiz
+   3. Ch  7.  0049-String Ensemble 1.xiz
+   4. Ch  9.  0034-Electric Bass finger.xiz
+   5. Ch  8.  0007-Harpsichord.xiz
+   6. Ch  3.  0093-Pad 5 bowed.xiz
+   7. Ch  2.  0094-Pad 6 metallic.xiz
+   8. Ch  5.  0063-Brass Section.xiz
+   9. Ch  4.  0115-Steel Drums.xiz (muted)
+
+The bank must be installed in ~/.config/yoshimi-cookbook/banks.
+
+Sequencer64 settings:
+
+   [1] seq24 1 Channel 10
+
+To set up and play the tune (using ALSA):
+
+   1. Make sure that the seq24 or sequencer64 config ("rc") files
+      specify 0 for manual-alsa-ports, and do not set up any MIDI clocks.
+
+   2. yoshimi -a -A -l wpb_yoshimi_params.xmz
+
+   3. sequencer64 wpb_yoshimi.midi &
+
+   4. File / Options / MIDI Clock:  Verify which MIDI buss Yoshimi is
+      on.  In our case, it is on buss 5 (buss 0 is Midi Through, and 1
+      through 4 are ports created by TiMidity).  There are probably better
+      ways to do this, but right click on each pattern to select buss 5 and
+      the channel shown after the dash in the lower left corner of each
+      pattern.  Probably best to save this to a new file, just in case.
+
+   5. Open the Song Editor of sequencer64.  Click the red play arrow.
+

@@ -1,6 +1,6 @@
 Construction of "Where's Prince Brilliant" for ZynAddSubFx/Yoshimi
 Chris Ahlstrom
-2012-01-20 to 2016-03-13
+2012-01-20 to 2016-03-31
 
 This file describes the importing of one of my old Cakewalk transcriptions, a
 rendering of "Where's Prince Brilliant?" from (unreliable) memory.
@@ -24,7 +24,7 @@ Imported the original (created for Sound Blaster Wave and FM,
 plus MT-32) *.mid file into Seq24.  Reduced it to 8 voices:
 
    1. Lead
-   2. Base
+   2. Bass
    3. Strings
    4. Alarum
    5. Lead Alternate
