@@ -1,0 +1,35 @@
+midipp::midimap 'Conversions':
+   INI style:               'sectioned'
+   Setup name:              'midicvtpp'
+   Map type:                'multi'
+   Record count:             179
+   GM drum channel:          10
+   Device drum channel:      16
+   Filter channel:           -1
+   Extract channel:          false
+   Reject channel:           false
+   Reverse map:              false
+Drum/note map:
+   Size:                     51
+ 786: Note  #38  Acoustic                 ---> #40  Synth                    (Electric)
+ 782: Note  #44  Pedal                    ---> #35  Bass                     (Acoustic)
+ 790: Note  #45  Low                      ---> #36  Bass                     (Bass)
+ 604: Note  #49  Crash                    ---> #40  Snare                    (Electric)
+  10: Note  #50  High                     ---> #47  Tom                      (Low-Mid)
+   2: Note  #51  Ride                     ---> #37  Rim                      (Side)
+  70: Note  #52  Chinese                  ---> #38  Snare                    (Acoustic)
+1296: Note  #57  Crash                    ---> #42  High                     (Closed)
+ 470: Note  #60  Hi                       ---> #49  C3                       (Crash)
+   6: Note  #61  Low                      ---> #55  Splash                   (Splash)
+ 166: Note  #62  Mute                     ---> #51  Ride                     (Ride)
+  14: Note  #63  Open                     ---> #59  Ride                     (Ride)
+   12 drum records dumped
+Patch/program map:
+   Size:                     128
+   2: Patch #  0 Acoustic                 ---> # 62 Synth                    (Synth)
+   1: Patch # 12 Marimba                  ---> # 26 Jazz                     (Elec.)
+   1: Patch # 25 Acoustic                 ---> #  3 Honkytonk                (Honky-tonk)
+   1: Patch # 38 Synth                    ---> # 33 Elec                     (Elec.)
+   1: Patch # 72 Piccolo                  ---> # 25 12-string                (Acou.)
+   1: Patch # 87 Lead                     ---> # 69 Flugelhorn               (English)
+   6 patch records dumped
