@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2015-07-15
-% \update      2016-03-12
+% \update      2016-04-21
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -42,21 +42,23 @@
    successive notes.
 
    Since the detuning provided in \textsl{Yoshimi} is based primarily on
-   cents (and octaves), it pays to understand cents.  If a given frequency
-   \texttt{f'} is offset from another frequency \texttt{f}, the
-   relationships between them in semitones are:
+   \textsl{cents} (and octaves), it pays to understand cents.  If a given
+   frequency \texttt{f}' is offset from another frequency \texttt{f}, the
+   relationships between them in \textsl{semitones} (\texttt{s}) are:
 
    \[f' = f * 2^s/12\]
 
    \[s = 12 log (f'/f) / log 2\]
 
+   Note that the log operator is the base-10 log.
    In cents, these relationships become:
 
    \[f' = f * 2^s/1200\]
 
-   \[s = 1200 log (f'/f) / log 2\]
+   \[c = 1200 log (f'/f) / log 2\]
 
-   These relationships hold whether \texttt{f'} is less than or greater than
+   where \texttt{c} is cents.
+   These relationships hold whether \texttt{f}' is less than or greater than
    \texttt{f}.  They provide an easy way to determine how much to detune a
    frequency in \textsl{Yoshimi}.
 
@@ -71,7 +73,6 @@
    When two tones, \texttt{f1} and \texttt{f2}, with 
    \texttt{f1} \textless \texttt{f2}, are multiplied, the spectrum
    changes from \{f1, f2\} to \{f2-f1, f2+f1\}.
-
    Depending on the ratio of \texttt{f1} and \texttt{f2}, the
    sounds can be bell-like or very discordant.
    \textsl{Yoshimi} provides ring modulation, as well as other forms of

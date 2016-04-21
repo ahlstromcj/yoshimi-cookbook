@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2016-03-09
-% \update      2016-03-10
+% \update      2016-04-21
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -28,27 +28,37 @@
    First, one needs to make sure to have one's
    \texttt{\textasciitilde/.config/yoshimi/presets} directory
    in the set of preset directories.
-   Navigate to the \textbf{Main window / Paths / Preset Dirs...} menu entry
+   Navigate to the \textbf{Menu / Paths / Preset Dirs...} menu entry
    and see if it is there.
    Add it if necessary.
 
    Second, make sure that there are some root directories available.
-   Navigate to the \textbf{Main window / Paths / Bank Root Dirs...} menu entry
+   Navigate to the \textbf{Menu / Paths / Bank Root Dirs...} menu entry
    and make sure at least the first of these directories are present:
 
    \begin{verbatim}
-      /usr/share/yoshimi/banks (or in /usr/local if built from source)
+      /usr/share/yoshimi/banks
       /usr/share/zynaddsubfx/banks
    \end{verbatim}
+
+   Replace \texttt{/usr} with \texttt{/usr/local} if \textsl{Yoshimi}
+   was built from source code.  Also note that the second directory will not
+   be present if \texttt{ZynAddSubFX} is not installed.
 
 \subsection{Presets / Pick a Patch}
 \label{subsec:presets_pick_a_patch}
 
    Now navigate to
    \textbf{Main window / Patch Sets / Show Patch Banks...}.
-   Pick item \textbf{60. Pads}.
-   In the Pads bank window that opens, pick \textbf{8. Resonance Pad1}.
-   The following figure shows the set of windows that are now open:
+   Pick (left-click) item \textbf{60. Pads} (it might be associated with a
+   different number in one's own installation of \textsl{Yoshimi}).
+   In the \textbf{Pads} bank window that opens, pick \textbf{8. Resonance Pad1}.
+   This instrument will now be active in the main window.
+   In the main window, click the \textbf{Edit} button.  In the
+   \textbf{Instrument Edit} dialog that comes up, click the \textbf{Edit}
+   button for the desired part of the instrument (e.g. \textbf{ADDsynth}).
+   The following figure shows a set of windows that could be open in a
+   \textsl{Yoshimi} instrument-editing session:
 
 \begin{figure}[H]
    \centering 

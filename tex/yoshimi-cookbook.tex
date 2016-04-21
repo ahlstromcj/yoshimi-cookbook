@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2015-07-12
-% \update      2016-03-12
+% \update      2016-04-21
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -105,7 +105,8 @@
 
    One thing we recommend for following this cookbook is to set the
    \textsl{Yoshimi} compression level to \textbf{0}.  This makes it a lot
-   easier to text-edit the file to read its contents.  To make this setting:
+   easier to text-edit the file to read its contents and understand them.
+   To make this setting:
 
    \index{XML compression}
    \begin{enumber}
@@ -121,6 +122,9 @@
    factor of more than 10, making a 10K file into a 180K file.
    But these days, that should not be a problem.  Maybe if one is running
    \textsl{Yoshimi} on an old \textsl{Raspberry Pi} device.
+   On the other hand, for normal usage, it is best to leave the compression
+   setting at 3, since decompression is faster than reading larger amounts of
+   data from a file.
 
 \subsection{What Game Shall We Play Today?}
 \label{subsec:introduction_what_game}

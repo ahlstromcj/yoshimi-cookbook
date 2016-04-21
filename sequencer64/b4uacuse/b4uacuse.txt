@@ -29,6 +29,15 @@ No instrument mapped to tone bank 0, program 12 -
 No instrument mapped to tone bank 0, program 87 -
 	 this instrument will not be heard
 
+Our /etc/timidity/timidity.cfg file specifies the /etc/timidity/freepats.cfg
+file.  In this file, we see that bank 0 does not define the three patch numbers
+that are noted as missing above and below:  12, 62, and 87.  Patch 12 on the
+PSS-790 is "Marimba", but is mapped to GM's "Jazz Guitar" ("Elec. Guitar
+(jazz)").  In Timidity's freepats, this is patch 26.  Patch 0 is mapped to
+patch 62, which is "Synth Brass 1" in GM; the closest in Timidity's freepats is
+patch 61 "Brass Section".  Patch 87 on the PSS-790 is "Lead 8 (bass+lead)"
+which gets mapped to "Flugelhorn" ("English Horn").
+
 Let's use midicvtpp to convert it to good (we hope) GM format:
 
    $ midicvtpp --m2m GM_PSS-790_Multi.ini -i b4uacuse.mid -o b4uacuse-gm-1.mid
@@ -44,9 +53,17 @@ plays pretty well:
 	No instrument mapped to tone bank 0, program 62 -
        this instrument will not be heard
 
+Again, note that patch 62 is a "Synth Brass 1" patch.
+
 We can't tell what the target voices of the PSS-790 were, and what they were
 converted to.  That sounds like a feature to add to midicvtpp!  Done, in version
 0.4.0!  We can go forward with the GM MIDI bank we have created for Yoshimi.
+Take a look at the file summary.txt.  Used in the patch descriptions above.
+
+The next step is to see how these patches map to our preliminary Yoshimi GM
+bank.
+
+
 
 ----------------------------------------------
 
