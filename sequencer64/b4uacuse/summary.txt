@@ -1,3 +1,6 @@
+Input file:  'b4uacuse.mid'
+Output file: 'b.mid'
+INI file:    'GM_PSS-790_Multi.ini'
 midipp::midimap 'Conversions':
    INI style:               'sectioned'
    Setup name:              'midicvtpp'
@@ -26,10 +29,10 @@ Drum/note map:
    12 drum records dumped
 Patch/program map:
    Size:                     128
-   2: Patch #  0 Acoustic Grand Piano     ---> # 62 Synth Brass 1            (Synth Brass 1)
-   1: Patch # 12 Marimba                  ---> # 26 Jazz Guitar              (Elec. Guitar (jazz))
-   1: Patch # 25 Acoustic Guitar (steel)  ---> #  3 Honkytonk Piano          (Honky-tonk Piano)
-   1: Patch # 38 Synth Bass 1             ---> # 33 Elec Bass                (Elec. Bass (finger))
-   1: Patch # 72 Piccolo                  ---> # 25 12-string Guitar         (Acou. Guitar (steel))
-   1: Patch # 87 Lead 8 (bass + lead)     ---> # 69 Flugelhorn               (English Horn)
+   2: Patch #  1 Acoustic Grand Piano     ---> # 63 Synth Brass 1            (Synth Brass 1)
+   1: Patch # 13 Marimba                  ---> # 27 Jazz Guitar              (Elec. Guitar (jazz))
+   1: Patch # 26 Acoustic Guitar (steel)  ---> #  4 Honkytonk Piano          (Honky-tonk Piano)
+   1: Patch # 39 Synth Bass 1             ---> # 34 Elec Bass                (Elec. Bass (finger))
+   1: Patch # 73 Piccolo                  ---> # 26 12-string Guitar         (Acou. Guitar (steel))
+   1: Patch # 88 Lead 8 (bass + lead)     ---> # 70 Flugelhorn               (English Horn)
    6 patch records dumped

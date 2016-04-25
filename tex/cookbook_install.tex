@@ -1,0 +1,54 @@
+%-------------------------------------------------------------------------------
+% cookbook_install
+%-------------------------------------------------------------------------------
+%
+% \file        cookbook_install.tex
+% \library     Documents
+% \author      Chris Ahlstrom
+% \date        2016-04-22
+% \update      2016-04-22
+% \version     $Revision$
+% \license     $XPC_GPL_LICENSE$
+%
+%     Provides a tutorial on installing Yoshimi cookbook resources.
+%
+%-------------------------------------------------------------------------------
+
+\section{Installing Cookbook Resources}
+\label{sec:install}
+
+   This section explains how to set up the \textsl{Yoshimi Cookbook} files into
+   one's "home" directory so that they are easily accessible and easily
+   modifiable.
+
+   First, let's get the files copied to the home directory.  Currently, the
+   \textsl{Yoshimi Cookbook} resources are not installable.  One simply unpacks
+   this project, or git-clones it to the desired directory.  Let's call it
+   \texttt{yoshimi-cookbook}.  This name represents where one has cloned the
+   project.
+
+   \begin{verbatim}
+      cd .../yoshimi-cookbook
+      cd ..
+      cp -r yoshimi-cookbook ~/.config
+   \end{verbatim}
+
+   These commands end up "installing" the cookbook resources to
+   \texttt{\textasciitilde/.config/yoshimi-cookbook}.
+
+\subsection{Resources / Paths}
+\label{subsec:resources_paths}
+
+   How do we copy the yoshimi-cookbook stuff to our "home" directory?
+
+   \textbf{Menu / Paths / Bank Root Dirs}
+
+   Push the button \textbf{Add root directory...}.
+
+   Select:
+
+   \texttt{/home/username/.config/yoshimi-cookbook/banks}
+
+%-------------------------------------------------------------------------------
+% vim: ts=3 sw=3 et ft=tex
+%-------------------------------------------------------------------------------

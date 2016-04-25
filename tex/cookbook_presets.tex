@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2016-03-09
-% \update      2016-04-21
+% \update      2016-04-22
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -43,7 +43,7 @@
 
    Replace \texttt{/usr} with \texttt{/usr/local} if \textsl{Yoshimi}
    was built from source code.  Also note that the second directory will not
-   be present if \texttt{ZynAddSubFX} is not installed.
+   be present if \textsl{ZynAddSubFX} is not installed.
 
 \subsection{Presets / Pick a Patch}
 \label{subsec:presets_pick_a_patch}
@@ -53,8 +53,10 @@
    Pick (left-click) item \textbf{60. Pads} (it might be associated with a
    different number in one's own installation of \textsl{Yoshimi}).
    In the \textbf{Pads} bank window that opens, pick \textbf{8. Resonance Pad1}.
-   This instrument will now be active in the main window.
-   In the main window, click the \textbf{Edit} button.  In the
+   This instrument will now be active in the main window for the current
+   \textbf{Part}.
+   In the main window, click the \textbf{Edit} button to the right of the part
+   name.  In the
    \textbf{Instrument Edit} dialog that comes up, click the \textbf{Edit}
    button for the desired part of the instrument (e.g. \textbf{ADDsynth}).
    The following figure shows a set of windows that could be open in a
@@ -73,7 +75,7 @@
 
    Now let's save some of the instrument's presets.
    Click the \textsl{Yoshimi} main window's \textbf{Edit} button.
-   Oddly, this PAD instrument uses only the ADDsynth engine.
+   Oddly, this Pad instrument uses only the ADDsynth engine.
    Press the ADDsynth item's \textbf{Edit} button.
    Up comes the complex, multi-panelled window for the ADDsynth setup.
    Note the blue \textbf{C} and \textbf{P} buttons in each of the following
@@ -133,10 +135,8 @@
    Let's try to reconstruct the sound.
    
    Load the \textsl{Yoshimi} \textbf{Simple Sound}. 
-   This sound currently cannot be obtained via \textbf{Instruments / Clear}!
-   (Bug?)
-   Therefore just move to the next part number in the main window.
-   Or restart \textsl{Yoshimi}.
+   This sound can also be obtained via the \textbf{Instruments / Clear}
+   command.
    Listen to \textbf{Simple Sound} via the virtual keyboard, and note
    how pure and tone-like it is.
    Then click the main window \textbf{Edit} button, then the
@@ -162,6 +162,21 @@
    In summary, the presets are essentially keyed to the sub-panels.
    In naming them, you need to use a name that represents the sound that the
    preset contributes, via the settings in its sub-panels.
+
+\subsection{Presets / Pick a Bank}
+\label{subsec:presets_pick_a_bank}
+
+   Now let's see if we can save an entire bank as a preset.
+
+   How do we copy the yoshimi-cookbook stuff to our "home" directory?
+
+   \textbf{Menu / Paths / Bank Root Dirs}
+
+   Push the button \textbf{Add root directory...}.
+
+   Select:
+
+   \texttt{/home/username/.config/yoshimi-cookbook/banks}
 
 %-------------------------------------------------------------------------------
 % vim: ts=3 sw=3 et ft=tex
