@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2016-04-26
-% \update      2016-04-26
+% \update      2016-04-27
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -21,15 +21,15 @@
    \textsl{Yoshimi}, plus some concrete methods for configuration
    \textsl{Yoshimi} and taking advantage of its newer capabilities.
 
-   We will break this section into tunes.
+   We will subdivide this section by tunes converted.
 
 \subsection{Tune / "Before You Accuse Me"}
 \label{subsec:conversions_tune_b4uacuse}
 
-   This file describes the importing of one of our old Cakewalk transcriptions,
-   a rendering of Eric Clapton and Robert Cray from a transcription that
-   someone gave to me to try out.  It was originally transcribed to fit the
-   Yahama PSS-790 \cite{pss790} 
+   This file describes the importing an old (circa 1996)
+   Cakewalk transcription, a rendering of Eric Clapton and Robert Cray from a
+   transcription that someone gave to me to try out.  It was originally
+   transcribed to fit the Yahama PSS-790 \cite{pss790} 
    consumer-level keyboard, as we recall (it was years and years ago.)
 
    First, let us run the \texttt{b4uacuse.mid} MIDI file
@@ -61,13 +61,21 @@
    file specifies the \texttt{/etc/timidity/freepats.cfg} file.
    In this file, we see that bank 0 does not define the three patch numbers
    that are noted as missing above and below:  12, 62, and 87.  Patch 12 on the
-   PSS-790 is "Marimba", but is mapped to GM "Jazz Guitar" ("Elec. Guitar
-   (jazz)").  In \textsl{TiMidity++} freepats, this is patch 26.
+   PSS-790 is
+   \textsl{Marimba}, but is mapped to GM
+   \textsl{Jazz Guitar} 
+   (\textsl{Elec. Guitar jazz}).
+   In \textsl{TiMidity++} freepats, this is patch 26.
    Patch 0 is mapped to
-   patch 62, which is "Synth Brass 1" in GM;
+   patch 62, which is
+   \textsl{Synth Brass 1} in GM;
    the closest in \textsl{TiMidity++} freepats is
-   patch 61 "Brass Section".  Patch 87 on the PSS-790 is "Lead 8 (bass+lead)"
-   which gets mapped to "Flugelhorn" ("English Horn").
+   patch 61
+   \textsl{Brass Section}.  Patch 87 on the PSS-790 is
+   \textsl{Lead 8 (bass+lead)}
+   which gets mapped to
+   \textsl{Flugelhorn} 
+   \textsl({English Horn}).
    The tune sounds reasonable, but obviously is not scored correctly.
    Let us use \textsl{midicvtpp} \cite{midicvt}
    to convert it to good (we hope) GM format:
@@ -86,93 +94,122 @@
    The command creates a file that has only one "error" message and
    plays pretty well in Timidity:
 
+   \begin{verbatim}
       No instrument mapped to tone bank 0, program 62 -
           this instrument will not be heard
+   \end{verbatim}
 
-   Again, note that patch 62 is a "Synth Brass 1" patch.
+   Again, note that patch 62 is a \textsl{Synth Brass 1} patch.
 
    We cannot tell what the target voices of the PSS-790 were, and what they
-   were converted to.  That sounds like a feature to add to midicvtpp!  Done,
-   in version 0.4.0!  We can go forward with the GM MIDI bank we have created
-   for Yoshimi.  Take a look at the file summary.txt.  Used in the patch
-   descriptions above.
+   were converted to.  That sounds like a feature to add to the
+   \textsl{midicvtpp} program!
+   Done, in version 0.4.0!
+   We can go forward with the GM MIDI bank we have created
+   for \textsl{Yoshimi}.
+   Take a look at the file \texttt{sequencer64/b4uacuse/summary.txt}
+   in this project.  It is used in the patch descriptions here.
 
-   The next step is to see how these patches map to our preliminary Yoshimi GM
+   The next step is to see how these patches map to our preliminary
+   \textsl{Yoshimi} GM
    bank.  We have three ways to go for patching:
 
-   1. Keep the program-change track(s) and use them to select instruments.
-   2. Move each program-change to the appropriate track.
-   3. Remove all program-change events and rely on a Yoshimi state file
-      to set up.
+   \begin{enumber}
+      \item Keep the program-change track(s) and use them to select instruments.
+      \item Move each program-change to the appropriate track.
+      \item Remove all program-change events and rely on a Yoshimi state file
+         to set up.
+   \end{enumber}
 
 The disadvantage of keeping the program changes:
 
-   1. They are currently spread out in three different tracks, as can be seen
-      by opening the b4uacuse-gm-1.mid file in Sequencer64 and viewing the
-      "PSS-790 Patch", "Chris Ahlstro", and "(GEnie: KICKA" tracks using the
-      Event Editor.
-   2. They make it difficult to remix the song for playback on various
-      synthesizers other than Yoshimi.
-   3. At least in Yoshimi, it becomes more difficult to change the instruments
-      used.
-   4. They take away a chance to learn how Yoshimi state works.
+   \begin{enumber}
+      \item They are currently spread out in three different tracks, as can be
+         seen by opening the b4uacuse-gm-1.mid file in Sequencer64 and viewing
+         the "PSS-790 Patch", "Chris Ahlstro", and "(GEnie: KICKA" tracks using
+         the Event Editor.
+      \item They make it difficult to remix the song for playback on various
+         synthesizers other than Yoshimi.
+      \item At least in \textsl{Yoshimi}, it becomes more difficult to change
+         the instruments used.
+      \item They take away a chance to learn how \textsl{Yoshimi} state works.
+   \end{enumber}
 
-On the other hand, it will be interesting to add program changes to the tune
-and see how Yoshimi handles it these days.  Later.
+   On the other hand, it will be interesting to add program changes to the tune
+   and see how \textsl{Yoshimi} handles it these days.  Later.
 
-So let us take b4uacuse-gm-1.mid, trim out the patch tracks and empty tracks,
-recreate the layout of the song editor, and save it as
-b4uacuse-gm-patchless.midi.  Here are the tracks, and their putative GM
-instruments as numbered in our GM bank:
+   So let us take \texttt{b4uacuse-gm-1.mid}, trim out the patch tracks and
+   empty tracks, recreate the layout of the song editor, and save it as
+   \texttt{b4uacuse-gm-patchless.midi} (a \textsl{Sequencer64} format).
+   Here are the tracks, and their putative GM
+   instruments as numbered in our GM bank:
 
-Track 0: Guitar 1 (E.C.)         #26 Acou. Guitar (steel)
-Track 1: Guitar 2 (R.C.)         #27 Elec. Guitar (jazz)
-Track 2: Bass Guitar             #34 Elec. Bass (finger)
-Track 3: Drums                   Drums
-Track 4: Vocal                   #70 English Horn
-Track 5: Rhythm (Chords)         #4 Honky-tonk Piano
+   \begin{verbatim}
+      Track 0: Guitar 1 (E.C.)         #26 Acou. Guitar (steel)
+      Track 1: Guitar 2 (R.C.)         #27 Elec. Guitar (jazz)
+      Track 2: Bass Guitar             #34 Elec. Bass (finger)
+      Track 3: Drums                   Drums
+      Track 4: Vocal                   #70 English Horn
+      Track 5: Rhythm (Chords)         #4 Honky-tonk Piano
+   \end{verbatim}
 
-See summary.txt to see what conversions were made by midicvt.
-We go to Yoshimi / Menu / Patch Sets / Show Patch Banks... and look at the
-banks.  We select "116. gm-basic".  This bank has passable (in most cases)
-equivalents to GM instruments, plus a drum kit at program number 129 (an
-extended program number).
+   See \texttt{summary.txt} to see what conversions were made by
+   \textsl{midicvtpp}.  We go to
+   \textbf{Yoshimi / Menu / Patch Sets / Show Patch Banks...}
+   and look at the banks.  We select \textsl{116. gm-basic}.
+   This bank has passable (in most cases) equivalents
+   to GM instruments, plus a drum kit at program number 129 (an extended
+   program number).
 
-We will set the channels to "track + 1", except for drums, which go to channel 10.
-Channels are counted from 1.  We enable each Yoshimi Part.  We note the name (in
-quotes) of the corresponding Yoshimi patch.
+   We will set the channels to "track + 1" (channels are counted from 1),
+   except for drums, which go to channel 10.  We enable each
+   \textsl{Yoshimi} Part.  We
+   note the name (in quotes) of the corresponding Yoshimi patch.
 
-Yoshimi parts from the gm-basic bank (116. gm-basic):
+   \textsl{Yoshimi} parts are taken from the \textsl{gm-basi}
+   c bank ("116. gm-basic"):
 
+\begin{verbatim}
 Track 0, Ch.  1: Guitar 1 (E.C.) #26 Acoustic Guitar (steel) ("Clean Guitar 1")
 Track 1, Ch.  2: Guitar 2 (R.C.) #27 Electric Guitar (jazz) ("Electric Guitar")
 Track 2, Ch.  3: Bass Guitar     #34 Electric Bass (finger) ("Electric bass 1")
 Track 3, Ch. 10: Drums           #129 Drum Kit ("Natural Drum Kit from DS 2")
 Track 4, Ch.  5: Vocal           #70 English Horn ("Analog Brass 2")
 Track 5, Ch.  6: Rhythm (Chords) #4 Honky-tonk Piano ("Synth Piano 3 fat")
+\end{verbatim}
 
-The bank must be installed in ~/.config/yoshimi-cookbook/banks.
+   Note that The bank must be installed in
+   \texttt{\textasciitilde/.config/yoshimi-cookbook/banks} or
+   in a root path setup as in
+   \sectionref{subsec:cookbook_banks_root_paths}.
 
-After setting up each Track/Part/Channel, we played the tune, and adjusted the
-volume of some of the parts while playing it through buss 5 (where Yoshimi sets
-up on our system) via the command
+   After setting up each Track/Part/Channel, we played the tune, using
+   ALSA, and adjusted
+   the volume of some of the parts while playing it through buss 5 (where
+   \textsl{Yoshimi} sets up on our system) via the command
 
-   $ sequencer64 --bus 5 b4uacuse-gm-patchless.midi
+   \begin{verbatim}
+      $ sequencer64 --bus 5 b4uacuse-gm-patchless.midi
+   \end{verbatim}
    
-We then saved the entire state of Yoshimi to
-~/.config/yoshimi/yoshimi-b4uacuse-gm.state via Menu / State / Save ....  We
-reload this file via
+   We then saved the entire state of \textsl{Yoshimi} to
+   \texttt{~/.config/yoshimi/yoshimi-b4uacuse-gm.state}
+   via \textbf{Menu / State / Save ...}.  We reload this file via
 
-   $ yoshimi -a -A --state=yoshimi-b4uacuse-gm.state
+   \begin{verbatim}
+      $ yoshimi -a -A --state=yoshimi-b4uacuse-gm.state
+   \end{verbatim}
    
 to verify that it still works.  We ended up switching to JACK playback for
 recording the audio:
 
-   $ sequencer64 -J b4uacuse-gm-patchless.midi
-   $ yoshimi -j -J --state=yoshimi-b4uacuse-gm.state
+   \begin{verbatim}
+      $ sequencer64 -J b4uacuse-gm-patchless.midi
+      $ yoshimi -j -J --state=yoshimi-b4uacuse-gm.state
+   \end{verbatim}
 
-and avconv (ffmpeg) for converting it to an MP3 file that one can listen to
-without loading up all this software.
+   and \textsl{avconv} (\textsl{ffmpeg}) for converting it to an MP3 file that
+   one can listen to without loading up all this software.
 
 %-------------------------------------------------------------------------------
 % vim: ts=3 sw=3 et ft=tex
