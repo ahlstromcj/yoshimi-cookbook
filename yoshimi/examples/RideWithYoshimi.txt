@@ -1,0 +1,91 @@
+Ride With Yoshimi
+Chris Ahlstrom and Will Godfrey
+2016-06-05 to 2016-06-05
+
+Will sent me a nice demonstration MIDI file for Yoshimi.  Here we set it up for
+playback in an arbitrary sequencer application.
+
+Will writes:
+
+   At the end of my LAC workshop I demonstrated a song being played using 16
+   parts with multiple bank changes and program loads while playing, starting
+   with a 'bare' Yoshimi. Although I used Rosegarden for this, I also have a
+   MIDI file that runs here with:
+
+      aplaymidi -p yoshimi /data/Source/RideWithYoshimi.mid
+
+   If you are interested I can send that file to you. Its only requirements are
+   that root ID 9 points to the default bank set supplied with Yoshimi, and
+   default MIDI settings are in place.
+
+So we start up Yoshimi (in ALSA mode!).  We open the banks dialog (menu Patch
+Sets / Show Patch Banks).  In the banks dialog, we click the Roots button to
+open the Bank Root Paths dialog.  In this dialog, We make sure
+/usr/local/share/yoshimi/banks is the current root.  Then we change its ID
+value to 9, and click the red Pending button.
+
+Next, we start Sequencer64 (to use --buss 5, which is where Yoshimi sits on
+our setup), and open the RideWithYoshimi.mid file.  Surprise, we see that
+it is SMF 0 format, which Sequencer64 converts to SMF 1. We get rid of the
+highlighted track, which contains the unconverted SMF 0 data.  We bring up the
+Song Editor, hit "p" to enter paint mode, and click each of the 16 tracks into
+place.  Finally, we save it as "RideWithYoshimi.midi", in Sequencer64 format.
+
+Oh, then we play it, and it sounds very nice!
+
+Here is the console output from Yoshimi while that song plays:
+
+master % yoshimi -a -A
+Yoshimi 1.4.0 rc3 is starting
+March little endian = 1
+Format = Signed Little Endian 32 Bit 2 Channel
+Using alsa_audio for audio and alsa_midi for midi
+Yoshimi 1.4.0 rc3
+Build Number 762
+Clientname: yoshimi
+Audio: alsa -> 'default'
+Midi: alsa -> 'default'
+Oscilsize: 512
+Samplerate: 48000
+Period size: 256
+
+Yay! We're up and running :-)
+
+Button 0
+Part 0
+Kit 255
+Engine 255
+Insert 255  Insert Param 255
+Control 58  Value   0
+yoshimi> Alsa midi port connected
+Loaded 127 "Moor Drums" to Part 9
+Bank set to 110 Will_Godfrey_Companion
+Loaded 91 "Wind Pipes" to Part 5
+Loaded 37 "Smooth Saw" to Part 14
+Bank set to 105 Will_Godfrey_Collection
+Loaded 102 "Pan Pipe" to Part 11
+Loaded 99 "Prophesy" to Part 4
+Loaded 15 "Echo Bubbles" to Part 12
+Loaded 79 "Echo Choir" to Part 11
+Loaded 20 "Whistle" to Part 12
+Loaded 66 "Smooth" to Part 13
+Loaded 121 "Another Choir" to Part 14
+Loaded 84 "Far Reed" to Part 15
+Loaded 51 "Great Organ" to Part 11
+Loaded 125 "Hyper Matrix" to Part 12
+Bank set to 110 Will_Godfrey_Companion
+Loaded 107 "Angel Harp" to Part 13
+Loaded 118 "Ghost Choir" to Part 13
+Loaded 23 "Solo" to Part 10
+Bank set to 105 Will_Godfrey_Collection
+Loaded 67 "Rushes" to Part 8
+Loaded 76 "Voyager" to Part 6
+Loaded 85 "Clarinet" to Part 12
+Bank set to 110 Will_Godfrey_Companion
+Loaded 37 "Smooth Saw" to Part 13
+Bank set to 105 Will_Godfrey_Collection
+Loaded 49 "Soft Organ" to Part 3
+Loaded 4 "Silver Bell" to Part 4
+Loaded 13 "Super Square" to Part 7
+
+# vim: sw=4 ts=4 wm=4 et ft=sh
