@@ -1,0 +1,77 @@
+
+Date: Sat, 11 Jun 2016 10:24:57 +0100
+From: Will Godfrey <willgodfrey@musically.me.uk>
+To: Chris Ahlstrom <ahlstromcj@gmail.com>
+Subject: yoshimi cookbook
+X-Mailer: Claws Mail 3.13.2 (GTK+ 2.24.30; x86_64-pc-linux-gnu)
+
+Hi Chris,
+
+Now I'm easing back a bit on yoshimi in preparation for 1.4.0 release (at
+last!) I had time to take a quick look at what's going on around :)
+
+I'm pleased to see you've pulled in ride with yoshimi but an a bit puzzled by
+the output messages. There seem to all of the early ones missing, so I don't
+know how it could have played correctly!
+
+Here is the list I get when running from the command line with:
+
+aplaymidi -p yoshimi /data/source/RideWithYoshimi.mid
+
+yoshimi> Alsa midi port connected
+Root set to 9 /usr/local/share/yoshimi/banks
+Bank set to 105 Will_Godfrey_Collection
+Loaded 4 "Silver Bell" to Part 4
+Loaded 44 "Steel Bass" to Part 3
+Loaded 6 "Ethereal" to Part 0
+Loaded 97 "Wet Brass" to Part 1
+Loaded 73 "Sweep Rushes" to Part 2
+Loaded 63 "Slow Deep Matrix" to Part 8
+Loaded 108 "Tunnel Piano" to Part 5
+Loaded 12 "Full Square" to Part 7
+Loaded 92 "Overdrive" to Part 6
+Loaded 53 "Hammond Organ" to Part 11
+Loaded 40 "Master Synth High" to Part 10
+Bank set to 25 Drums
+Loaded 127 "Moor Drums" to Part 9
+Bank set to 110 Will_Godfrey_Companion
+Loaded 91 "Wind Pipes" to Part 5
+Loaded 37 "Smooth Saw" to Part 14
+Bank set to 105 Will_Godfrey_Collection
+Loaded 102 "Pan Pipe" to Part 11
+Loaded 99 "Prophesy" to Part 4
+Loaded 15 "Echo Bubbles" to Part 12
+Loaded 79 "Echo Choir" to Part 11
+Loaded 20 "Whistle" to Part 12
+Loaded 66 "Smooth" to Part 13
+Loaded 121 "Another Choir" to Part 14
+Loaded 84 "Far Reed" to Part 15
+Loaded 51 "Great Organ" to Part 11
+Loaded 125 "Hyper Matrix" to Part 12
+Bank set to 110 Will_Godfrey_Companion
+Loaded 107 "Angel Harp" to Part 13
+Loaded 118 "Ghost Choir" to Part 13
+Loaded 23 "Solo" to Part 10
+Bank set to 105 Will_Godfrey_Collection
+Loaded 67 "Rushes" to Part 8
+Loaded 76 "Voyager" to Part 6
+Loaded 85 "Clarinet" to Part 12
+Bank set to 110 Will_Godfrey_Companion
+Loaded 37 "Smooth Saw" to Part 13
+Bank set to 105 Will_Godfrey_Collection
+Loaded 49 "Soft Organ" to Part 3
+Loaded 4 "Silver Bell" to Part 4
+Loaded 13 "Super Square" to Part 7
+Alsa midi port disconnected
+
+If you are already on root 9 bank 105 when you start, those messages wouldn't
+appear. The *only* requirement is that root 9 contains the correct banks, not
+that Yoshimi is already on it. That is a point I've had difficulty making clear
+to lots of people, and is what makes Yoshimi's bank management superior to just
+about anything else I've seen - but I would say that, wouldn't I :)
+
+Oh, and the reason the file is smf0 is because it was created with arecordmidi.
+This *should* play nice on any system, where smf1 might confuse old (ancient?)
+programs.
+ 
+

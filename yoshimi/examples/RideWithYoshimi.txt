@@ -1,6 +1,6 @@
 Ride With Yoshimi
 Chris Ahlstrom and Will Godfrey
-2016-06-05 to 2016-06-05
+2016-06-05 to 2016-06-14
 
 Will sent me a nice demonstration MIDI file for Yoshimi.  Here we set it up for
 playback in an arbitrary sequencer application.
@@ -49,7 +49,7 @@ Oscilsize: 512
 Samplerate: 48000
 Period size: 256
 
-Yay! We're up and running :-)
+Yay! Up and running :-)
 
 Button 0
 Part 0
@@ -88,4 +88,168 @@ Loaded 49 "Soft Organ" to Part 3
 Loaded 4 "Silver Bell" to Part 4
 Loaded 13 "Super Square" to Part 7
 
-# vim: sw=4 ts=4 wm=4 et ft=sh
+Second try, with all tracks, even the SFM 0 running.
+
+However, in wills-notes.txt, he gets different results.  So now
+let's try loading the MID file directly, instead of using the
+Sequencer64-formatted MIDI file.  Here's playback with all tracks,
+including the SMF 0 track:
+
+Yoshimi 1.4.0 is starting
+March little endian = 1
+Format = Signed Little Endian 32 Bit 2 Channel
+Didn't find alsa MIDI source 'A'
+Using alsa_audio for audio and alsa_midi for midi
+Yoshimi 1.4.0
+Build Number 768
+Clientname: yoshimi
+Audio: alsa -> 'default'
+Midi: alsa -> 'default'
+Oscilsize: 512
+Samplerate: 48000
+Period size: 256
+
+Yay! We're up and running :-)
+yoshimi> Alsa midi port connected
+Loaded 4 "Silver Bell" to Part 4
+Loaded 44 "Steel Bass" to Part 3
+Loaded 6 "Ethereal" to Part 0
+Loaded 97 "Wet Brass" to Part 1
+Loaded 4 "Silver Bell" to Part 4
+Loaded 44 "Steel Bass" to Part 3
+Alsa midi port disconnected
+Alsa midi port connected
+Loaded 4 "Silver Bell" to Part 4
+Loaded 4 "Silver Bell" to Part 15
+Loaded 44 "Steel Bass" to Part 3
+Loaded 44 "Steel Bass" to Part 15
+Loaded 6 "Ethereal" to Part 0
+Loaded 6 "Ethereal" to Part 15
+Loaded 97 "Wet Brass" to Part 1
+Loaded 97 "Wet Brass" to Part 15
+Loaded 73 "Sweep Rushes" to Part 2
+Loaded 73 "Sweep Rushes" to Part 15
+Loaded 63 "Slow Deep Matrix" to Part 8
+Loaded 63 "Slow Deep Matrix" to Part 15
+Loaded 108 "Tunnel Piano" to Part 5
+Loaded 108 "Tunnel Piano" to Part 15
+Loaded 12 "Full Square" to Part 7
+Loaded 12 "Full Square" to Part 15
+Loaded 92 "Overdrive" to Part 6
+Loaded 92 "Overdrive" to Part 15
+Loaded 53 "Hammond Organ" to Part 11
+Loaded 53 "Hammond Organ" to Part 15
+Loaded 40 "Master Synth High" to Part 10
+Loaded 40 "Master Synth High" to Part 15
+Bank set to 25 Drums
+Bank set to 25 Drums
+Loaded 127 "Moor Drums" to Part 9
+Loaded 127 "Moor Drums" to Part 15
+Bank set to 110 Will_Godfrey_Companion
+Loaded 91 "Wind Pipes" to Part 5
+Loaded 91 "Wind Pipes" to Part 15
+Loaded 37 "Smooth Saw" to Part 14
+Loaded 37 "Smooth Saw" to Part 15
+Bank set to 105 Will_Godfrey_Collection
+Loaded 102 "Pan Pipe" to Part 11
+Loaded 102 "Pan Pipe" to Part 15
+Loaded 99 "Prophesy" to Part 4
+Loaded 99 "Prophesy" to Part 15
+Loaded 15 "Echo Bubbles" to Part 12
+Loaded 15 "Echo Bubbles" to Part 15
+Loaded 79 "Echo Choir" to Part 11
+Loaded 79 "Echo Choir" to Part 15
+Too many notes - notes > poliphony
+Too many notes - notes > poliphony
+Loaded 20 "Whistle" to Part 12
+Loaded 20 "Whistle" to Part 15
+Loaded 66 "Smooth" to Part 13
+Loaded 66 "Smooth" to Part 15
+Loaded 121 "Another Choir" to Part 14
+Loaded 121 "Another Choir" to Part 15
+Loaded 108 "Tunnel Piano" to Part 5
+Loaded 84 "Far Reed" to Part 15
+Loaded 84 "Far Reed" to Part 15
+Loaded 51 "Great Organ" to Part 11
+Loaded 51 "Great Organ" to Part 15
+Loaded 125 "Hyper Matrix" to Part 12
+Loaded 125 "Hyper Matrix" to Part 15
+Too many notes - notes > poliphony
+Too many notes - notes > poliphony
+ . . .
+Too many notes - notes > poliphony
+Bank set to 110 Will_Godfrey_Companion
+Too many notes - notes > poliphony
+Too many notes - notes > poliphony
+ . . .
+Too many notes - notes > poliphony
+Loaded 107 "Angel Harp" to Part 13
+Loaded 107 "Angel Harp" to Part 15
+Too many notes - notes > poliphony
+Too many notes - notes > poliphony
+
+Whoops, let's delete the SMF 0 track and play again:
+
+Bank set to 105 Will_Godfrey_Collection
+Loaded 4 "Silver Bell" to Part 4
+Loaded 44 "Steel Bass" to Part 3
+Loaded 6 "Ethereal" to Part 0
+Loaded 97 "Wet Brass" to Part 1
+Loaded 73 "Sweep Rushes" to Part 2
+Loaded 63 "Slow Deep Matrix" to Part 8
+Loaded 108 "Tunnel Piano" to Part 5
+Loaded 12 "Full Square" to Part 7
+Loaded 92 "Overdrive" to Part 6
+Loaded 53 "Hammond Organ" to Part 11
+Loaded 40 "Master Synth High" to Part 10
+Bank set to 25 Drums
+Loaded 127 "Moor Drums" to Part 9
+Bank set to 110 Will_Godfrey_Companion
+Loaded 91 "Wind Pipes" to Part 5
+Loaded 37 "Smooth Saw" to Part 14
+Bank set to 105 Will_Godfrey_Collection
+Loaded 102 "Pan Pipe" to Part 11
+Loaded 99 "Prophesy" to Part 4
+Loaded 15 "Echo Bubbles" to Part 12
+Loaded 79 "Echo Choir" to Part 11
+Loaded 20 "Whistle" to Part 12
+Loaded 66 "Smooth" to Part 13
+Loaded 121 "Another Choir" to Part 14
+Loaded 108 "Tunnel Piano" to Part 5
+Loaded 84 "Far Reed" to Part 15
+Loaded 51 "Great Organ" to Part 11
+Loaded 125 "Hyper Matrix" to Part 12
+Bank set to 110 Will_Godfrey_Companion
+Loaded 107 "Angel Harp" to Part 13
+Loaded 91 "Wind Pipes" to Part 5
+Loaded 118 "Ghost Choir" to Part 13
+No Program 108 in this bank
+Loaded 23 "Solo" to Part 10
+Bank set to 105 Will_Godfrey_Collection
+Loaded 67 "Rushes" to Part 8
+Loaded 76 "Voyager" to Part 6
+Loaded 53 "Hammond Organ" to Part 11
+Bank set to 25 Drums
+Loaded 127 "Moor Drums" to Part 9
+No Program 85 in this bank
+Bank set to 110 Will_Godfrey_Companion
+Loaded 37 "Smooth Saw" to Part 13
+Bank set to 105 Will_Godfrey_Collection
+Bank set to 110 Will_Godfrey_Companion
+No Program 49 in this bank
+Loaded 91 "Wind Pipes" to Part 5
+Bank set to 105 Will_Godfrey_Collection
+Loaded 102 "Pan Pipe" to Part 11
+Loaded 4 "Silver Bell" to Part 4
+Loaded 4 "Silver Bell" to Part 4
+Loaded 13 "Super Square" to Part 7
+Loaded 79 "Echo Choir" to Part 11
+Loaded 6 "Ethereal" to Part 0
+Loaded 108 "Tunnel Piano" to Part 5
+Loaded 44 "Steel Bass" to Part 3
+
+Better.  We need to look at Sequencer64's process of conversion when it writes
+the file.  Also, it may be that Sequencer64's MIDI automation configuration
+interfere's with Yoshimi's MIDI automation.
+
+# vim: sw=4 ts=4 wm=4 et ft=rc
