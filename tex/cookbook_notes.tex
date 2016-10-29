@@ -1,0 +1,70 @@
+%-------------------------------------------------------------------------------
+% cookbook_notes
+%-------------------------------------------------------------------------------
+%
+% \file        cookbook_notes.tex
+% \library     Documents
+% \author      Chris Ahlstrom
+% \date        2016-10-29
+% \update      2016-10-29
+% \version     $Revision$
+% \license     $XPC_GPL_LICENSE$
+%
+%     Provides a tutorial on notesing Yoshimi cookbook resources.
+%
+%-------------------------------------------------------------------------------
+
+\section{Usage Notes}
+\label{sec:notes}
+
+   This section contains some notes about usage and settings we've collected
+   that don't fit anywhere else.  These notes come from 
+   \url{http://www.freelists.org/list/yoshimi}.
+   To post to the list, email to: \url{yoshimi@freelists.org}
+   The archive of the old SourceForge mailing list is found
+   at: \url{https://www.freelists.org/archive/yoshimi}.
+
+\subsection{Notes / Instrument Design}
+\label{subsec:notes_xxxxx}
+
+   From user "Ichthyostega":
+
+   \begin{quotation}
+      I find it difficult to balance or voice an instrument design
+      such that it "runs well" when used in composition over various octaves.
+      With some designs, the descant dominates, while in other cases the
+      bass dominates. When I play a chord over several octaves, or have
+      several lines at the same time, they show a different weight
+      and are not well balanced out. Of course, I can somewhat fix
+      that by giving the individual notes different velocities or
+      use several MIDI channels with different volume settings.
+      But I rather consider this the job of instrument design:
+      it should come out well balanced out of the box.
+   \end{quotation}
+
+   Will answers:
+
+   \begin{quotation}
+      First off, the way the sound engines work involves a degree of modelling
+      whereby sound energy tends to decrease with increasing frequency. This
+      was a deliberate choice made by Paul when he designed them, intending to
+      more-or-less emulate real instruments. It's been a minor nuisance to me
+      occasionally, but to a degree you can get round it by fiddling the
+      \textbf{Resonance} graph (not SubSynth).
+      You can also set filters to \textbf{LPF1}
+      with \textbf{Q} to zero and \textbf{C.freq} to max.
+
+      Any waveform with little harmonic content will tend to sound quieter at
+      lower frequencies, while the amplitude is actually pretty constant.
+      \textsl{Simple Sound} is a classic example of that.
+
+      Fades across a instruments in a kit has been mentioned before. I had a
+      look at it some time ago, and it is actually an
+      \textsl{extremely} difficult
+      problem. If there were only two possible kit items it would 'just' be
+      hard -- across potentially 16 is in the nightmare realm!
+   \end{quotation}
+
+%-------------------------------------------------------------------------------
+% vim: ts=3 sw=3 et ft=tex
+%-------------------------------------------------------------------------------
