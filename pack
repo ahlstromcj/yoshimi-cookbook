@@ -8,7 +8,7 @@
 # \library    	yoshimi-cookbook
 # \author     	Chris Ahlstrom
 # \date       	2014-07-12
-# \update     	2014-07-12
+# \update     	2018-06-03
 # \version    	$Revision$
 # \license    	$XPC_SUITE_GPL_LICENSE$
 #
@@ -126,7 +126,7 @@ else
    pushd ..
    if [ -d $WORKINGDIR ] ; then
 
-   tar cJf $TARBALLNAME $WORKINGDIR/ \
+   tar cJf $TARBALLNAME \
   --exclude-vcs         \
   --exclude="tex-stamp" \
   --exclude="out.*"     \
@@ -145,8 +145,8 @@ else
   --exclude="*.bak"     \
   --exclude=".*.swp"    \
   --exclude="*.t"       \
-  --exclude="*.tmp"
-
+  --exclude="*.tmp"     \
+  $WORKINGDIR/ \
       echo
 
    else
