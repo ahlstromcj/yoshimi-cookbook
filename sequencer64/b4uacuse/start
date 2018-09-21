@@ -1,0 +1,3 @@
+#!/bin/sh
+
+yoshimi --state=yoshimi-b4uacuse-gm.state
