@@ -6,7 +6,7 @@
 % \library     Documents
 % \author      Chris Ahlstrom
 % \date        2015-07-15
-% \update      2016-04-21
+% \update      2020-10-30
 % \version     $Revision$
 % \license     $XPC_GPL_LICENSE$
 %
@@ -46,14 +46,14 @@
    frequency \texttt{f}' is offset from another frequency \texttt{f}, the
    relationships between them in \textsl{semitones} (\texttt{s}) are:
 
-   \[f' = f * 2^s/12\]
+   \[f' = f * 2^{s/12}\]
 
    \[s = 12 log (f'/f) / log 2\]
 
    Note that the log operator is the base-10 log.
    In cents, these relationships become:
 
-   \[f' = f * 2^s/1200\]
+   \[f' = f * 2^{s/1200}\]
 
    \[c = 1200 log (f'/f) / log 2\]
 
